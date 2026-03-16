@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Apprendre Français ↔ Vietnamien — Programme complet</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--r:#C0392B;--g:#D4A017;--c:#FDF6E3;--d:#1A1008;--n:#1B2A4A;--gr:#2E6B4F;--lr:#FDECEA;--lg:#FEF9EC;--b:#E8D9B5;--pu:#6C3483;--or:#E67E22;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--c);color:var(--d);min-height:100vh;}
+header{background:var(--n);color:white;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid var(--g);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:10px;}
+header h1{font-family:'Playfair Display',serif;font-size:1.25rem;}
+header h1 span{display:block;font-size:0.65rem;font-weight:300;color:var(--g);letter-spacing:2px;text-transform:uppercase;font-family:'Be Vietnam Pro',sans-serif;}
+.hstats{display:flex;align-items:center;gap:14px;}
+.sb{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 14px;text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.6);min-width:64px;}
+.sb strong{display:block;font-size:1.3rem;color:var(--g);font-family:'Playfair Display',serif;}
+.streak-box{background:rgba(255,100,0,0.2);border:1px solid rgba(255,150,0,0.4);border-radius:8px;padding:6px 12px;font-size:0.78rem;color:#FFAA44;display:none;white-space:nowrap;}
+.lvl-box{background:rgba(108,52,131,0.3);border:1px solid rgba(180,100,255,0.4);border-radius:8px;padding:6px 12px;font-size:0.72rem;color:#CF9FFF;}
+.lvl-box span{font-size:1.1rem;font-weight:700;color:#E0BBFF;}
+nav{background:white;border-bottom:2px solid var(--b);padding:0 16px;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+nav::-webkit-scrollbar{display:none;}
+.ct{padding:11px 14px;cursor:pointer;font-size:0.77rem;font-weight:500;color:#888;border:none;border-bottom:3px solid transparent;background:none;font-family:'Be Vietnam Pro',sans-serif;white-space:nowrap;transition:all 0.2s;}
+.ct:hover{color:var(--n);}.ct.active{color:var(--r);border-bottom-color:var(--r);font-weight:600;}
+.ct.done{color:var(--gr);}
+.ct.done::after{content:'✓';margin-left:4px;font-size:0.65rem;}
+.mw{max-width:1100px;margin:0 auto;padding:28px 16px 80px;}
+.cs{display:none;}.cs.active{display:block;}
+.sh{text-align:center;margin-bottom:26px;}
+.sh .be{font-size:2.6rem;display:block;margin-bottom:8px;}
+.sh h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--n);}
+.sh .st{font-size:0.9rem;color:var(--r);margin-top:3px;font-weight:300;letter-spacing:1px;}
+.pn{margin:10px auto 0;max-width:720px;background:var(--lg);border-left:4px solid var(--g);padding:10px 16px;border-radius:0 8px 8px 0;font-size:0.83rem;color:#555;text-align:left;line-height:1.75;}
+.bt{display:flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-size:1rem;color:var(--n);margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--b);}
+.bn{background:var(--r);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px;margin-bottom:6px;}
+.vh{font-size:0.72rem;color:#bbb;margin-bottom:8px;}
+.vc{background:white;border:2px solid var(--b);border-radius:11px;padding:12px;cursor:pointer;transition:all 0.22s;min-height:85px;position:relative;}
+.vc:hover{border-color:var(--r);transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,57,43,0.1);}
+.vc.done-card{border-color:var(--gr);opacity:0.7;}
+.vc .wp{font-family:'Playfair Display',serif;font-size:1rem;color:var(--n);font-weight:700;}
+.vc .pr{font-size:0.63rem;color:#bbb;margin:3px 0;font-style:italic;}
+.vc .ws{font-size:0.88rem;color:var(--r);font-weight:600;margin-top:5px;display:none;}
+.vc .ex{font-size:0.69rem;color:#777;margin-top:5px;line-height:1.5;display:none;border-top:1px solid var(--b);padding-top:5px;}
+.vc.open .ws{display:block;}.vc.open .ex{display:block;}
+.vc .tap{float:right;font-size:0.56rem;color:#ccc;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.dw{background:white;border:1px solid var(--b);border-radius:12px;overflow:hidden;}
+.dl{display:flex;gap:10px;padding:11px 15px;border-bottom:1px solid var(--b);align-items:flex-start;}
+.dl:last-child{border-bottom:none;}
+.sp{background:var(--n);color:white;border-radius:50%;width:25px;height:25px;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.sp.b{background:var(--r);}
+.dt .dp{color:var(--n);font-weight:500;font-size:0.87rem;line-height:1.5;}
+.dt .ds{color:var(--r);font-size:0.79rem;margin-top:2px;line-height:1.5;}
+/* QUIZ */
+.quiz-tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.qtab{padding:7px 14px;border-radius:20px;font-size:0.76rem;font-weight:600;cursor:pointer;border:2px solid var(--b);background:white;color:#888;transition:all 0.18s;font-family:'Be Vietnam Pro',sans-serif;}
+.qtab:hover{border-color:var(--n);color:var(--n);}
+.qtab.active{background:var(--n);color:white;border-color:var(--n);}
+.qtab.done{background:var(--gr);color:white;border-color:var(--gr);}
+.qw{background:white;border:1px solid var(--b);border-radius:12px;overflow:hidden;}
+.qt{background:var(--n);color:white;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.qtl{display:flex;align-items:center;gap:8px;}
+.qt h3{font-family:'Playfair Display',serif;font-size:0.92rem;}
+.db{background:var(--g);color:var(--d);padding:2px 8px;border-radius:20px;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.qs{display:flex;gap:10px;font-size:0.68rem;color:rgba(255,255,255,0.7);}
+.qs span strong{color:var(--g);}
+.qi{padding:18px 16px;}
+.qp{height:5px;background:var(--b);border-radius:3px;margin-bottom:12px;}
+.qpb{height:100%;background:linear-gradient(90deg,var(--r),var(--g));border-radius:3px;transition:width 0.4s;}
+.qm{font-size:0.68rem;color:#bbb;text-align:right;margin-bottom:7px;}
+.qtl2{font-size:0.64rem;text-transform:uppercase;letter-spacing:1.5px;color:#aaa;text-align:center;margin-bottom:4px;}
+.qq{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;}
+.qq p{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--n);line-height:1.4;text-align:center;}
+.qq button{background:none;border:none;font-size:1rem;cursor:pointer;opacity:0.4;flex-shrink:0;transition:opacity 0.15s;}
+.qq button:hover{opacity:1;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px;}
+.opt{padding:10px 11px;border:2px solid var(--b);border-radius:9px;background:white;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:0.85rem;color:var(--d);transition:all 0.15s;text-align:center;line-height:1.4;}
+.opt:hover:not(:disabled){border-color:var(--n);background:#f4f6ff;}
+.opt.ok{border-color:var(--gr);background:#eafaf1;color:var(--gr);font-weight:600;}
+.opt.ko{border-color:var(--r);background:var(--lr);color:var(--r);}
+.fb{padding:8px 12px;border-radius:8px;font-weight:600;font-size:0.84rem;margin-bottom:10px;display:none;align-items:center;gap:8px;flex-wrap:wrap;}
+.fb.ok{background:#eafaf1;color:var(--gr);display:flex;}
+.fb.ko{background:var(--lr);color:var(--r);display:flex;}
+.fb .spkb{background:none;border:1.5px solid currentColor;border-radius:6px;padding:2px 8px;cursor:pointer;font-size:0.7rem;font-family:'Be Vietnam Pro',sans-serif;color:inherit;flex-shrink:0;}
+.fr{text-align:center;margin-bottom:12px;}
+.fi{border:2px solid var(--b);border-radius:8px;padding:9px 14px;font-family:'Be Vietnam Pro',sans-serif;font-size:0.97rem;outline:none;width:100%;max-width:360px;transition:border-color 0.2s;background:white;color:var(--d);}
+.fi:focus{border-color:var(--n);}
+.fi.ok{border-color:var(--gr);background:#eafaf1;}
+.fi.ko{border-color:var(--r);background:var(--lr);}
+.qn{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.btn{padding:8px 18px;border-radius:8px;font-family:'Be Vietnam Pro',sans-serif;font-size:0.79rem;font-weight:600;cursor:pointer;border:none;transition:all 0.16s;text-transform:uppercase;letter-spacing:0.4px;}
+.btn.n{background:var(--n);color:white;}.btn.n:hover{background:#253a5e;}
+.btn.r{background:var(--r);color:white;}.btn.r:hover{background:#a93226;}
+.btn.o{background:transparent;border:2px solid var(--b);color:var(--d);}.btn.o:hover{border-color:var(--n);}
+.btn.g{background:var(--gr);color:white;}.btn.g:hover{background:#235a3d;}
+.btn.pu{background:var(--pu);color:white;}.btn.pu:hover{background:#5b2a70;}
+/* MATCH exercise */
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.mcol{display:flex;flex-direction:column;gap:6px;}
+.mitem{padding:9px 12px;border:2px solid var(--b);border-radius:8px;cursor:pointer;font-size:0.84rem;text-align:center;transition:all 0.16s;background:white;}
+.mitem:hover{border-color:var(--n);}
+.mitem.sel{border-color:var(--g);background:var(--lg);}
+.mitem.ok{border-color:var(--gr);background:#eafaf1;color:var(--gr);cursor:default;}
+.mitem.ko{border-color:var(--r);background:var(--lr);animation:sh 0.3s ease;}
+/* SORT exercise */
+.sort-wrap{margin-bottom:14px;}
+.sort-items{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px;min-height:42px;border:2px dashed var(--b);border-radius:8px;padding:8px;}
+.sitem{padding:7px 14px;background:var(--n);color:white;border-radius:20px;cursor:pointer;font-size:0.83rem;transition:all 0.15s;}
+.sitem:hover{background:var(--r);}
+.sitem.placed{background:var(--gr);}
+.sort-slots{display:flex;flex-wrap:wrap;gap:7px;min-height:42px;border:2px solid var(--b);border-radius:8px;padding:8px;}
+.slot{min-width:90px;padding:7px 14px;border:2px dashed var(--b);border-radius:20px;font-size:0.83rem;color:#bbb;text-align:center;cursor:pointer;}
+.slot.filled{background:var(--lgold);border-color:var(--g);color:var(--d);}
+/* BATTLE mode */
+.battle-wrap{background:white;border:2px solid var(--or);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.battle-head{background:var(--or);color:white;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;}
+.battle-head h4{font-family:'Playfair Display',serif;font-size:0.95rem;}
+.timer{font-size:1.4rem;font-weight:700;font-family:'Playfair Display',serif;min-width:48px;text-align:right;}
+.timer.warn{color:#FFEEAA;}
+.timer.crit{color:#FF6666;animation:pulse 0.5s infinite;}
+.battle-body{padding:16px;}
+/* RESULT */
+.res{text-align:center;padding:28px 14px;}
+.res .re{font-size:3.2rem;}
+.res .rs{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--n);margin:10px 0 5px;}
+.res .rm{color:#555;margin-bottom:12px;font-size:0.94rem;line-height:1.6;}
+.rbd{display:flex;justify-content:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.rbi{background:var(--lg);border-radius:10px;padding:8px 14px;text-align:center;}
+.rbi strong{display:block;font-size:1.3rem;color:var(--n);font-family:'Playfair Display',serif;}
+.rbi span{font-size:0.67rem;color:#888;text-transform:uppercase;letter-spacing:1px;}
+.xp-bar{height:8px;background:var(--b);border-radius:4px;margin:10px 0;}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--pu),#9B59B6);border-radius:4px;transition:width 1s ease;}
+/* PROGRESS page */
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px;}
+.prog-card{background:white;border:1px solid var(--b);border-radius:12px;padding:14px;}
+.prog-card .emoji{font-size:1.6rem;display:block;margin-bottom:6px;}
+.prog-card h4{font-size:0.9rem;color:var(--n);font-weight:600;margin-bottom:6px;}
+.prog-bar{height:6px;background:var(--b);border-radius:3px;}
+.prog-fill{height:100%;border-radius:3px;transition:width 0.6s;}
+.prog-fill.c0{background:var(--r);}
+.prog-fill.c1{background:var(--or);}
+.prog-fill.c2{background:var(--g);}
+.prog-fill.c3{background:var(--gr);}
+.prog-fill.c4{background:var(--pu);}
+.prog-fill.c5{background:var(--n);}
+.prog-pct{font-size:0.7rem;color:#aaa;margin-top:3px;}
+/* MISC */
+@keyframes sh{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+@keyframes pop{0%{transform:scale(0.8);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
+.pop{animation:pop 0.3s ease forwards;}
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--n);color:white;padding:10px 20px;border-radius:20px;font-size:0.85rem;font-weight:600;z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+.toast.show{opacity:1;}
+.xp-toast{position:fixed;top:80px;right:20px;background:var(--pu);color:white;padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;z-index:999;opacity:0;transition:all 0.3s;pointer-events:none;}
+.xp-toast.show{opacity:1;}
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE — full rewrite
+   ══════════════════════════════════════ */
+
+/* ── BOTTOM NAV BAR on mobile ── */
+@media(max-width:700px){
+
+  /* Header compact */
+  header{
+    padding:10px 14px;
+    border-bottom-width:3px;
+  }
+  header h1{ font-size:1.05rem; }
+  header h1 span{ font-size:0.58rem; letter-spacing:1.5px; }
+  .hstats{ gap:6px; }
+  .sb{ padding:5px 10px; font-size:0.68rem; }
+  .sb strong{ font-size:1.1rem; }
+  .lvl-box{ padding:5px 9px; font-size:0.66rem; }
+  .lvl-box span{ font-size:0.95rem; }
+  .streak-box{ font-size:0.7rem; padding:5px 9px; }
+
+  /* Hide top nav, use bottom bar instead */
+  nav{
+    display:none;
+  }
+
+  /* Bottom navigation bar */
+  #bottomNav{
+    display:flex !important;
+    position:fixed;
+    bottom:0; left:0; right:0;
+    background:var(--n);
+    border-top:2px solid var(--g);
+    z-index:300;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  #bottomNav::-webkit-scrollbar{ display:none; }
+  .bnav-item{
+    flex:0 0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8px 14px 6px;
+    cursor:pointer;
+    font-size:0.58rem;
+    color:rgba(255,255,255,0.5);
+    font-family:'Be Vietnam Pro',sans-serif;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    border-bottom:3px solid transparent;
+    transition:all 0.18s;
+    min-width:64px;
+    text-align:center;
+    border:none;
+    background:none;
+    white-space:nowrap;
+  }
+  .bnav-item .bnav-emoji{ font-size:1.3rem; display:block; margin-bottom:2px; }
+  .bnav-item.active{ color:var(--g); border-bottom:3px solid var(--g); }
+  .bnav-item.done .bnav-emoji::after{ content:'✓'; font-size:0.55rem; color:var(--gr); vertical-align:super; margin-left:1px; }
+
+  /* Main wrap — leave room for bottom nav */
+  .mw{
+    padding:16px 12px 90px;
+  }
+
+  /* Section header */
+  .sh{ margin-bottom:18px; }
+  .sh .be{ font-size:2.2rem; }
+  .sh h2{ font-size:1.5rem; }
+  .sh .st{ font-size:0.82rem; }
+  .pn{ font-size:0.8rem; padding:9px 13px; margin-top:8px; }
+
+  /* Block titles */
+  .bt{ font-size:0.9rem; margin:18px 0 8px; }
+
+  /* Vocab grid — 2 cols on phone */
+  .vg{
+    grid-template-columns: repeat(2, 1fr);
+    gap:8px;
+  }
+  .vc{ padding:10px; min-height:76px; }
+  .vc .wp{ font-size:0.9rem; }
+  .vc .pr{ font-size:0.6rem; }
+  .vc .ws{ font-size:0.82rem; }
+  .vc .ex{ font-size:0.67rem; }
+
+  /* Dialogue */
+  .dl{ padding:10px 12px; gap:8px; }
+  .dt .dp{ font-size:0.82rem; }
+  .dt .ds{ font-size:0.75rem; }
+  .sp{ width:22px; height:22px; font-size:0.6rem; }
+
+  /* Quiz tabs — scrollable pills */
+  .quiz-tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:6px;
+    padding-bottom:4px;
+    margin-bottom:10px;
+  }
+  .quiz-tabs::-webkit-scrollbar{ display:none; }
+  .qtab{
+    flex:0 0 auto;
+    padding:6px 12px;
+    font-size:0.7rem;
+    white-space:nowrap;
+  }
+
+  /* Quiz body */
+  .qi{ padding:14px 12px; }
+  .qm{ font-size:0.65rem; }
+  .qtl2{ font-size:0.62rem; letter-spacing:1px; }
+  .qq p{ font-size:1.1rem; }
+
+  /* Options — single column, bigger touch targets */
+  .opts{
+    grid-template-columns:1fr;
+    gap:7px;
+  }
+  .opt{
+    padding:13px 14px;
+    font-size:0.88rem;
+    border-radius:10px;
+  }
+
+  /* Fill input */
+  .fi{
+    width:100%;
+    max-width:100%;
+    font-size:0.95rem;
+    padding:12px 14px;
+  }
+
+  /* Buttons */
+  .btn{ padding:10px 18px; font-size:0.78rem; }
+  .qn{ gap:8px; }
+
+  /* Match exercise */
+  .match-wrap{
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .mitem{
+    padding:9px 8px;
+    font-size:0.78rem;
+    border-radius:8px;
+  }
+
+  /* Result screen */
+  .res{ padding:20px 12px; }
+  .res .re{ font-size:2.8rem; }
+  .res .rs{ font-size:2.2rem; }
+  .rbd{ gap:10px; }
+  .rbi{ padding:7px 12px; }
+  .rbi strong{ font-size:1.1rem; }
+  .rbi span{ font-size:0.62rem; }
+
+  /* Battle mode */
+  .battle-head h4{ font-size:0.85rem; }
+  .timer{ font-size:1.2rem; }
+  .battle-body{ padding:12px; }
+
+  /* Toasts */
+  .toast{ font-size:0.8rem; padding:8px 16px; top:70px; }
+  .xp-toast{ font-size:0.75rem; padding:6px 12px; top:70px; right:14px; }
+
+  /* Progress notes */
+  .pn{ font-size:0.79rem; line-height:1.65; }
+}
+
+/* Very small screens */
+@media(max-width:380px){
+  .vg{ grid-template-columns:1fr; }
+  .match-wrap{ grid-template-columns:1fr; }
+  .sh h2{ font-size:1.3rem; }
+  .bnav-item{ min-width:56px; padding:7px 10px 5px; }
+  .bnav-item .bnav-emoji{ font-size:1.1rem; }
+}
+.mw{padding:14px 10px 60px;}
+  .opts{grid-template-columns:1fr;}.sh h2{font-size:1.4rem;}
+  .qs{display:none;}.hstats{gap:8px;}
+  .match-wrap{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div id="xptoast" class="xp-toast"></div>
+<header>
+  <div class="logo">
+    <span style="font-size:22px">🇻🇳🇫🇷</span>
+    <h1>Apprendre ensemble <span>Học cùng nhau · FR ↔ VI</span></h1>
+  </div>
+  <div class="hstats">
+    <div class="streak-box" id="streakBox">🔥 <span id="streakNum">0</span></div>
+    <div class="lvl-box">Niv. <span id="lvlNum">1</span></div>
+    <div class="sb"><strong id="sv">0</strong>points</div>
+  </div>
+</header>
+<nav id="nav"></nav>
+<div class="mw" id="mw"></div>
+
+<script>
+var C=[{"emoji": "👋", "title": "Les salutations", "subtitle": "Lời chào", "tab": "Les salutations", "note": "<b>Xin chào</b> est universel. Les formules varient selon l'âge : <em>Chào anh</em> (homme plus âgé), <em>Chào em</em> (plus jeune). La bise est française ; au Vietnam on serre la main. Le vouvoiement français n'existe pas en vietnamien, mais les pronoms (<em>anh, chị, em</em>) jouent ce rôle.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Bonjour", "s": "Xin chào", "pr": "sin tsào", "ep": "Bonjour, comment allez-vous ?", "es": "Xin chào, bạn có khỏe không ?"}, {"p": "Bonsoir", "s": "Chào buổi tối", "pr": "tsào buổi tối", "ep": "Bonsoir à tous !", "es": "Chào buổi tối mọi người !"}, {"p": "Bonne nuit", "s": "Chúc ngủ ngon", "pr": "tsúk ngủ ngon", "ep": "Bonne nuit, dors bien !", "es": "Chúc ngủ ngon, ngủ ngon nhé !"}, {"p": "Au revoir", "s": "Tạm biệt", "pr": "tam biệt", "ep": "Au revoir, à demain !", "es": "Tạm biệt, hẹn gặp lại !"}, {"p": "À bientôt", "s": "Hẹn gặp lại", "pr": "hẹn gap lại", "ep": "À bientôt !", "es": "Hẹn gặp lại !"}, {"p": "Merci", "s": "Cảm ơn", "pr": "kảm ơn", "ep": "Merci beaucoup !", "es": "Cảm ơn rất nhiều !"}, {"p": "De rien", "s": "Không có gì", "pr": "không kó gì", "ep": "Merci ! De rien !", "es": "Cảm ơn ! Không có gì !"}, {"p": "S'il vous plaît", "s": "Xin vui lòng", "pr": "sin vuì lòng", "ep": "S'il vous plaît, aidez-moi.", "es": "Xin vui lòng giúp tôi."}, {"p": "Oui", "s": "Vâng", "pr": "vâng", "ep": "Oui, je comprends.", "es": "Vâng, tôi hiểu."}, {"p": "Non", "s": "Không", "pr": "không", "ep": "Non, merci.", "es": "Không, cảm ơn."}, {"p": "Excusez-moi", "s": "Xin lỗi", "pr": "sin lỗi", "ep": "Excusez-moi, où est la gare ?", "es": "Xin lỗi, ga tàu ở đâu ?"}, {"p": "Pardon", "s": "Xin thứ lỗi", "pr": "sin thứ lỗi", "ep": "Pardon, je n'ai pas compris.", "es": "Xin thứ lỗi, tôi chưa hiểu."}, {"p": "Comment allez-vous", "s": "Bạn có khỏe không", "pr": "ban kó kẻ không", "ep": "Comment allez-vous aujourd'hui ?", "es": "Hôm nay bạn có khỏe không ?"}, {"p": "Très bien", "s": "Rất tốt", "pr": "rất tốt", "ep": "Je vais très bien, merci !", "es": "Tôi rất tốt, cảm ơn !"}, {"p": "Je m'appelle", "s": "Tôi tên là", "pr": "tôi tên là", "ep": "Je m'appelle Sophie.", "es": "Tôi tên là Sophie."}, {"p": "Enchanté", "s": "Rất vui được gặp", "pr": "rất vui đượk gap", "ep": "Enchanté, je suis Paul.", "es": "Rất vui được gặp, tôi là Paul."}, {"p": "Bienvenue", "s": "Chào mừng", "pr": "tsào mừng", "ep": "Bienvenue à Paris !", "es": "Chào mừng đến Paris !"}, {"p": "Félicitations", "s": "Chúc mừng", "pr": "tsúk mừng", "ep": "Félicitations pour ton mariage !", "es": "Chúc mừng đám cưới của bạn !"}, {"p": "Bonne chance", "s": "Chúc may mắn", "pr": "tsúk may mắn", "ep": "Bonne chance pour l'examen !", "es": "Chúc may mắn trong kỳ thi !"}, {"p": "Santé", "s": "Chúc sức khỏe", "pr": "tsúk sứk kẻ", "ep": "Santé ! À votre santé !", "es": "Chúc sức khỏe !"}], "dlg": [{"sp": "A", "p": "Bonjour ! Je m'appelle Léa. Comment allez-vous ?", "s": "Xin chào ! Tôi tên là Léa. Bạn có khỏe không ?"}, {"sp": "B", "p": "Bonjour Léa ! Très bien, merci. Je m'appelle Minh.", "s": "Xin chào Léa ! Rất tốt, cảm ơn. Tôi tên là Minh."}, {"sp": "A", "p": "Enchanté, Minh ! Vous êtes vietnamien ?", "s": "Rất vui được gặp, Minh ! Bạn là người Việt Nam à ?"}, {"sp": "B", "p": "Oui, de Hanoï. Et vous, vous êtes française ?", "s": "Vâng, tôi là người Hà Nội. Còn bạn, bạn là người Pháp à ?"}, {"sp": "A", "p": "Oui, de Lyon. Bienvenue à Paris !", "s": "Vâng, tôi là người Lyon. Chào mừng đến Paris !"}, {"sp": "B", "p": "Merci beaucoup ! À bientôt !", "s": "Cảm ơn rất nhiều ! Hẹn gặp lại !"}]}, {"emoji": "🏠", "title": "La maison", "subtitle": "Ngôi nhà", "tab": "La maison", "note": "<b>Phòng</b> = pièce en vietnamien. Les maisons vietnamiennes traditionnelles (<em>nhà cổ</em>) sont orientées vers le sud. Les appartements (<em>căn hộ</em>) se développent dans les grandes villes. En France, on distingue appartement et maison individuelle (<em>pavillon</em>).", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La maison", "s": "Ngôi nhà", "pr": "ngôi nhà", "ep": "Ma maison est grande.", "es": "Ngôi nhà của tôi rộng."}, {"p": "L'appartement", "s": "Căn hộ", "pr": "kăn hộ", "ep": "J'habite dans un appartement.", "es": "Tôi sống trong một căn hộ."}, {"p": "La chambre", "s": "Phòng ngủ", "pr": "phòng ngủ", "ep": "Ma chambre est bleue.", "es": "Phòng ngủ của tôi màu xanh."}, {"p": "La cuisine", "s": "Phòng bếp", "pr": "phòng bếp", "ep": "Je cuisine dans la cuisine.", "es": "Tôi nấu ăn trong phòng bếp."}, {"p": "La salle de bain", "s": "Phòng tắm", "pr": "phòng tắm", "ep": "La salle de bain est propre.", "es": "Phòng tắm sạch sẽ."}, {"p": "Le salon", "s": "Phòng khách", "pr": "phòng khách", "ep": "Nous regardons la télé au salon.", "es": "Chúng tôi xem TV ở phòng khách."}, {"p": "La porte", "s": "Cái cửa", "pr": "kái cửa", "ep": "Fermez la porte.", "es": "Xin đóng cửa lại."}, {"p": "La fenêtre", "s": "Cái cửa sổ", "pr": "kái cửa sổ", "ep": "La fenêtre est ouverte.", "es": "Cái cửa sổ đang mở."}, {"p": "Le jardin", "s": "Khu vườn", "pr": "ku vườn", "ep": "Nous jouons dans le jardin.", "es": "Chúng tôi chơi trong khu vườn."}, {"p": "Le toit", "s": "Mái nhà", "pr": "mái nhà", "ep": "Le toit est rouge.", "es": "Mái nhà màu đỏ."}, {"p": "Le mur", "s": "Bức tường", "pr": "bứk tường", "ep": "Le mur est blanc.", "es": "Bức tường màu trắng."}, {"p": "Le sol", "s": "Sàn nhà", "pr": "sàn nhà", "ep": "Le sol est propre.", "es": "Sàn nhà sạch sẽ."}, {"p": "La table", "s": "Cái bàn", "pr": "kái bàn", "ep": "La table est ronde.", "es": "Cái bàn tròn."}, {"p": "La chaise", "s": "Cái ghế", "pr": "kái ghế", "ep": "Asseyez-vous sur la chaise.", "es": "Ngồi vào cái ghế."}, {"p": "Le lit", "s": "Cái giường", "pr": "kái giường", "ep": "Je dors dans mon lit.", "es": "Tôi ngủ trên giường."}, {"p": "L'armoire", "s": "Tủ quần áo", "pr": "tủ kwan áo", "ep": "Mes vêtements sont dans l'armoire.", "es": "Quần áo tôi ở trong tủ."}, {"p": "Le réfrigérateur", "s": "Tủ lạnh", "pr": "tủ lạnh", "ep": "Le réfrigérateur est plein.", "es": "Tủ lạnh đầy thức ăn."}, {"p": "La télévision", "s": "Tivi", "pr": "ti-vi", "ep": "J'allume la télévision.", "es": "Tôi bật tivi."}, {"p": "L'escalier", "s": "Cầu thang", "pr": "kầu thang", "ep": "Je monte l'escalier.", "es": "Tôi leo cầu thang."}, {"p": "Le balcon", "s": "Ban công", "pr": "ban công", "ep": "Je prends le café sur le balcon.", "es": "Tôi uống cà phê ở ban công."}], "dlg": [{"sp": "A", "p": "Bienvenue chez moi ! Voici le salon.", "s": "Chào mừng đến nhà tôi ! Đây là phòng khách."}, {"sp": "B", "p": "Merci ! Ta maison est très belle. Tu as un jardin ?", "s": "Cảm ơn ! Nhà bạn đẹp lắm. Bạn có khu vườn không ?"}, {"sp": "A", "p": "Oui, le jardin est derrière la maison.", "s": "Có, khu vườn ở phía sau nhà."}, {"sp": "B", "p": "Et c'est quoi, là-haut ? Un balcon ?", "s": "Còn cái đó trên kia là gì ? Một ban công à ?"}, {"sp": "A", "p": "Oui ! J'adore prendre mon café là-haut le matin.", "s": "Vâng ! Tôi rất thích uống cà phê ở đó vào buổi sáng."}, {"sp": "B", "p": "Super ! La cuisine est à droite ?", "s": "Tuyệt ! Phòng bếp ở bên phải à ?"}]}, {"emoji": "☀️", "title": "La météo", "subtitle": "Thời tiết", "tab": "La météo", "note": "En français : <b>il fait + adjectif</b>. En vietnamien : <b>trời + adjectif</b>. Le Vietnam a 3 zones : nord (4 saisons), centre (très chaud, typhons), sud (mùa khô / mùa mưa). La météo est un sujet de conversation quotidien dans les deux cultures.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Il fait chaud", "s": "Trời nóng", "pr": "trời nóng", "ep": "Il fait très chaud aujourd'hui.", "es": "Hôm nay trời rất nóng."}, {"p": "Il fait froid", "s": "Trời lạnh", "pr": "trời lạnh", "ep": "Il fait froid en hiver.", "es": "Mùa đông trời lạnh."}, {"p": "Il pleut", "s": "Trời mưa", "pr": "trời mưa", "ep": "Il pleut depuis ce matin.", "es": "Trời mưa từ sáng đến giờ."}, {"p": "Il neige", "s": "Trời có tuyết", "pr": "trời kó tuyết", "ep": "Il neige en décembre.", "es": "Tháng 12 trời có tuyết."}, {"p": "Il fait soleil", "s": "Trời nắng", "pr": "trời nắng", "ep": "Il fait beau soleil !", "es": "Trời nắng đẹp !"}, {"p": "Il fait beau", "s": "Trời đẹp", "pr": "trời đẹp", "ep": "Il fait beau ce matin !", "es": "Sáng nay trời đẹp !"}, {"p": "Il fait mauvais", "s": "Trời xấu", "pr": "trời sấu", "ep": "Il fait mauvais, reste à la maison.", "es": "Trời xấu, ở nhà thôi."}, {"p": "Nuageux", "s": "Nhiều mây", "pr": "nhiều mây", "ep": "Le ciel est nuageux.", "es": "Bầu trời nhiều mây."}, {"p": "Venteux", "s": "Có gió", "pr": "kó gió", "ep": "Il fait venteux aujourd'hui.", "es": "Hôm nay có gió."}, {"p": "L'orage", "s": "Cơn bão", "pr": "kơn bão", "ep": "Il y a un orage ce soir.", "es": "Tối nay có cơn bão."}, {"p": "La pluie", "s": "Mưa", "pr": "mưa", "ep": "J'aime la pluie.", "es": "Tôi thích mưa."}, {"p": "Le soleil", "s": "Mặt trời", "pr": "mặt trời", "ep": "Le soleil brille.", "es": "Mặt trời sáng chói."}, {"p": "La neige", "s": "Tuyết", "pr": "tuyết", "ep": "La neige est blanche.", "es": "Tuyết màu trắng."}, {"p": "Le vent", "s": "Gió", "pr": "gió", "ep": "Le vent est fort.", "es": "Gió rất mạnh."}, {"p": "Le brouillard", "s": "Sương mù", "pr": "sương mù", "ep": "Il y a du brouillard ce matin.", "es": "Sáng nay có sương mù."}, {"p": "L'arc-en-ciel", "s": "Cầu vồng", "pr": "kầu vồng", "ep": "Regarde l'arc-en-ciel !", "es": "Nhìn kìa, có cầu vồng !"}, {"p": "La chaleur", "s": "Nóng bức", "pr": "nóng bứk", "ep": "La chaleur est insupportable.", "es": "Nóng bức không chịu được."}, {"p": "La tempête", "s": "Bão tố", "pr": "bão tố", "ep": "Une tempête arrive.", "es": "Bão tố đang đến."}, {"p": "L'humidité", "s": "Độ ẩm", "pr": "độ ẩm", "ep": "L'humidité est élevée.", "es": "Độ ẩm rất cao."}, {"p": "La sécheresse", "s": "Hạn hán", "pr": "hạn hán", "ep": "La sécheresse dure depuis des mois.", "es": "Hạn hán đã kéo dài mấy tháng."}], "dlg": [{"sp": "A", "p": "Quel temps fait-il aujourd'hui ?", "s": "Hôm nay thời tiết thế nào ?"}, {"sp": "B", "p": "Il fait chaud et il y a du soleil. Mais ce soir il y aura un orage.", "s": "Trời nóng và có nắng. Nhưng tối nay sẽ có cơn bão."}, {"sp": "A", "p": "Vraiment ? Je déteste les orages.", "s": "Thật sao ? Tôi ghét bão lắm."}, {"sp": "B", "p": "Moi j'adore ! La pluie après la chaleur, c'est agréable.", "s": "Còn tôi thích lắm ! Mưa sau cái nóng bức thì dễ chịu lắm."}, {"sp": "A", "p": "Tu as regardé la météo pour demain ?", "s": "Bạn đã xem dự báo thời tiết cho ngày mai chưa ?"}, {"sp": "B", "p": "Oui, il y aura de l'arc-en-ciel après la pluie !", "s": "Rồi, sau cơn mưa sẽ có cầu vồng !"}]}, {"emoji": "🐶", "title": "Les animaux", "subtitle": "Các con vật", "tab": "Les animaux", "note": "En vietnamien, les animaux sont précédés du classificateur <b>con</b>. Au Vietnam, le buffle (<em>con trâu</em>) est emblématique de la campagne. Les 12 animaux du zodiaque vietnamien diffèrent du chinois : le chat remplace le lapin dans le zodiaque vietnamien !", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Le chien", "s": "Con chó", "pr": "kon tsó", "ep": "Mon chien s'appelle Rex.", "es": "Con chó của tôi tên Rex."}, {"p": "Le chat", "s": "Con mèo", "pr": "kon méo", "ep": "Le chat dort sur le canapé.", "es": "Con mèo ngủ trên ghế sofa."}, {"p": "L'oiseau", "s": "Con chim", "pr": "kon tsim", "ep": "L'oiseau chante le matin.", "es": "Con chim hót vào buổi sáng."}, {"p": "Le poisson", "s": "Con cá", "pr": "kon ká", "ep": "Le poisson nage dans l'eau.", "es": "Con cá bơi trong nước."}, {"p": "Le lapin", "s": "Con thỏ", "pr": "kon thọ", "ep": "Le lapin mange des carottes.", "es": "Con thỏ ăn cà rốt."}, {"p": "Le cheval", "s": "Con ngựa", "pr": "kon ngựa", "ep": "Le cheval court vite.", "es": "Con ngựa chạy nhanh."}, {"p": "La vache", "s": "Con bò", "pr": "kon bò", "ep": "La vache donne du lait.", "es": "Con bò cho sữa."}, {"p": "Le buffle", "s": "Con trâu", "pr": "kon trâu", "ep": "Le buffle travaille dans les champs.", "es": "Con trâu làm việc ngoài đồng."}, {"p": "L'éléphant", "s": "Con voi", "pr": "kon voi", "ep": "L'éléphant est grand et fort.", "es": "Con voi to lớn và mạnh mẽ."}, {"p": "Le tigre", "s": "Con hổ", "pr": "kon hổ", "ep": "Le tigre est dangereux.", "es": "Con hổ rất nguy hiểm."}, {"p": "Le singe", "s": "Con khỉ", "pr": "kon kỉ", "ep": "Le singe mange une banane.", "es": "Con khỉ ăn chuối."}, {"p": "Le serpent", "s": "Con rắn", "pr": "kon rắn", "ep": "Le serpent est long.", "es": "Con rắn rất dài."}, {"p": "Le crocodile", "s": "Con cá sấu", "pr": "kon ká sấu", "ep": "Le crocodile est dans le fleuve.", "es": "Con cá sấu ở dưới sông."}, {"p": "Le canard", "s": "Con vịt", "pr": "kon vịt", "ep": "Le canard nage dans le lac.", "es": "Con vịt bơi trên hồ."}, {"p": "Le cochon", "s": "Con lợn", "pr": "kon lợn", "ep": "Le cochon est dans la ferme.", "es": "Con lợn ở trong trang trại."}, {"p": "La poule", "s": "Con gà mái", "pr": "kon gà mái", "ep": "La poule pond des oeufs.", "es": "Con gà mái đẻ trứng."}, {"p": "Le papillon", "s": "Con bướm", "pr": "kon bướm", "ep": "Le papillon est beau.", "es": "Con bướm rất đẹp."}, {"p": "La fourmi", "s": "Con kiến", "pr": "kon kiến", "ep": "Les fourmis sont courageuses.", "es": "Những con kiến rất dũng cảm."}, {"p": "Le moustique", "s": "Con muỗi", "pr": "kon muỗi", "ep": "Le moustique pique.", "es": "Con muỗi đốt đau."}, {"p": "Le dragon", "s": "Con rồng", "pr": "kon rồng", "ep": "Le dragon est un symbole en Asie.", "es": "Con rồng là biểu tượng ở châu Á."}], "dlg": [{"sp": "A", "p": "Tu as un animal de compagnie ?", "s": "Bạn có nuôi thú cưng không ?"}, {"sp": "B", "p": "Oui, j'ai un chien et deux chats. Et toi ?", "s": "Có, tôi có một con chó và hai con mèo. Còn bạn ?"}, {"sp": "A", "p": "Moi j'ai un lapin. Il s'appelle Cacahuète.", "s": "Tôi có một con thỏ. Nó tên là Cacahuète."}, {"sp": "B", "p": "Adorable ! Tu sais que dans le zodiaque vietnamien, le chat remplace le lapin ?", "s": "Dễ thương quá ! Bạn có biết trong 12 con giáp Việt Nam, con mèo thay thế con thỏ không ?"}, {"sp": "A", "p": "Non, je ne savais pas ! Quelle est ton année ?", "s": "Không, tôi không biết đâu ! Bạn tuổi gì ?"}, {"sp": "B", "p": "Je suis né l'année du tigre. Et toi ?", "s": "Tôi sinh năm con hổ. Còn bạn ?"}]}, {"emoji": "🚗", "title": "Les véhicules", "subtitle": "Các phương tiện", "tab": "Les véhicules", "note": "Au Vietnam, la moto (<b>xe máy</b>) est omniprésente. <b>Xe</b> = véhicule. Curiosité : à Hanoï, les rues ont été nommées d'après les métiers pratiqués : rue des orfèvres, rue des soieries... Les transports en commun se développent (métro de Hanoï inauguré en 2021).", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La voiture", "s": "Xe ô tô", "pr": "se ô tô", "ep": "Je conduis une voiture.", "es": "Tôi lái xe ô tô."}, {"p": "La moto", "s": "Xe máy", "pr": "se máy", "ep": "Il roule en moto.", "es": "Anh ấy đi xe máy."}, {"p": "Le vélo", "s": "Xe đạp", "pr": "se đạp", "ep": "Je vais à l'école à vélo.", "es": "Tôi đi học bằng xe đạp."}, {"p": "Le bus", "s": "Xe buýt", "pr": "se buýt", "ep": "Je prends le bus chaque matin.", "es": "Mỗi sáng tôi đi xe buýt."}, {"p": "Le train", "s": "Tàu hỏa", "pr": "tàu hỏa", "ep": "Le train est rapide.", "es": "Tàu hỏa chạy nhanh."}, {"p": "L'avion", "s": "Máy bay", "pr": "máy bay", "ep": "Je voyage en avion.", "es": "Tôi đi du lịch bằng máy bay."}, {"p": "Le bateau", "s": "Tàu thuyền", "pr": "tàu thuyền", "ep": "Le bateau navigue sur la mer.", "es": "Tàu thuyền đi trên biển."}, {"p": "Le taxi", "s": "Xe taxi", "pr": "se taxi", "ep": "Je prends un taxi.", "es": "Tôi đi xe taxi."}, {"p": "Le camion", "s": "Xe tải", "pr": "se tải", "ep": "Le camion livre des marchandises.", "es": "Xe tải giao hàng hóa."}, {"p": "Le métro", "s": "Tàu điện ngầm", "pr": "tàu điện ngầm", "ep": "Je prends le métro à Paris.", "es": "Tôi đi tàu điện ngầm ở Paris."}, {"p": "Le tramway", "s": "Xe điện", "pr": "se điện", "ep": "Le tramway passe toutes les 5 minutes.", "es": "Xe điện chạy 5 phút một chuyến."}, {"p": "L'hélicoptère", "s": "Trực thăng", "pr": "trực thăng", "ep": "L'hélicoptère survole la ville.", "es": "Trực thăng bay trên thành phố."}, {"p": "Le sous-marin", "s": "Tàu ngầm", "pr": "tàu ngầm", "ep": "Le sous-marin plonge.", "es": "Tàu ngầm lặn xuống."}, {"p": "La fusée", "s": "Tên lửa", "pr": "tên lửa", "ep": "La fusée va dans l'espace.", "es": "Tên lửa bay vào vũ trụ."}, {"p": "Le scooter", "s": "Xe tay ga", "pr": "se tay ga", "ep": "Mon scooter est en panne.", "es": "Xe tay ga của tôi bị hỏng."}, {"p": "Le camionnette", "s": "Xe van", "pr": "se van", "ep": "Je loue une camionnette.", "es": "Tôi thuê một chiếc xe van."}, {"p": "La pirogue", "s": "Thuyền độc mộc", "pr": "thuyền độk mộk", "ep": "On traverse en pirogue.", "es": "Chúng ta đi qua bằng thuyền độc mộc."}, {"p": "Le rickshaw", "s": "Xích lô", "pr": "sík lô", "ep": "On prend un rickshaw au Vietnam.", "es": "Chúng ta đi xích lô ở Việt Nam."}, {"p": "La trottinette", "s": "Xe scooter điện", "pr": "se scooter điện", "ep": "Je vais au travail en trottinette.", "es": "Tôi đi làm bằng xe scooter điện."}, {"p": "Le ferry", "s": "Phà", "pr": "phà", "ep": "On prend le ferry pour l'île.", "es": "Chúng ta đi phà ra đảo."}], "dlg": [{"sp": "A", "p": "Comment tu vas au travail ?", "s": "Bạn đi làm bằng gì ?"}, {"sp": "B", "p": "Je prends le métro, puis le bus. Et toi ?", "s": "Tôi đi tàu điện ngầm rồi đi xe buýt. Còn bạn ?"}, {"sp": "A", "p": "Moi, je vais à moto. C'est plus rapide !", "s": "Tôi đi xe máy. Nhanh hơn nhiều !"}, {"sp": "B", "p": "Mais ça coûte cher en essence, non ?", "s": "Nhưng tốn nhiều xăng lắm phải không ?"}, {"sp": "A", "p": "Pas tellement. Et le week-end, je prends le ferry pour aller sur l'île.", "s": "Không nhiều lắm. Và cuối tuần, tôi đi phà ra đảo."}, {"sp": "B", "p": "Quelle île ? C'est loin ?", "s": "Đảo nào vậy ? Có xa không ?"}]}, {"emoji": "🍜", "title": "La nourriture", "subtitle": "Đồ ăn", "tab": "La nourriture", "note": "La cuisine vietnamienne est mondialement reconnue : <b>phở</b>, <b>bánh mì</b>, <b>gỏi cuốn</b>. La notion de <em>repas équilibré</em> est commune aux deux cultures. En France, le repas est un rituel social important. Au Vietnam, manger ensemble renforce les liens familiaux.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Le riz", "s": "Cơm", "pr": "kơm", "ep": "Je mange du riz tous les jours.", "es": "Tôi ăn cơm mỗi ngày."}, {"p": "Le phở", "s": "Phở", "pr": "phở", "ep": "Le phở est le plat national vietnamien.", "es": "Phở là món ăn quốc gia của Việt Nam."}, {"p": "Le pain", "s": "Bánh mì", "pr": "bánh mì", "ep": "Je mange du pain le matin.", "es": "Buổi sáng tôi ăn bánh mì."}, {"p": "La viande", "s": "Thịt", "pr": "thịt", "ep": "Je n'aime pas beaucoup la viande.", "es": "Tôi không thích ăn nhiều thịt."}, {"p": "Le poisson", "s": "Cá", "pr": "ká", "ep": "Le poisson est délicieux.", "es": "Cá rất ngon."}, {"p": "Les légumes", "s": "Rau củ", "pr": "rau kủ", "ep": "Je mange des légumes tous les jours.", "es": "Tôi ăn rau củ mỗi ngày."}, {"p": "Les fruits", "s": "Trái cây", "pr": "trái kây", "ep": "J'aime les fruits tropicaux.", "es": "Tôi thích trái cây nhiệt đới."}, {"p": "Les nouilles", "s": "Mì", "pr": "mì", "ep": "Les nouilles sont délicieuses.", "es": "Mì rất ngon."}, {"p": "L'oeuf", "s": "Trứng", "pr": "trứng", "ep": "Je mange deux oeufs le matin.", "es": "Tôi ăn hai quả trứng buổi sáng."}, {"p": "Le fromage", "s": "Phô mai", "pr": "phô mai", "ep": "Le fromage français est excellent.", "es": "Phô mai Pháp rất ngon."}, {"p": "La soupe", "s": "Súp", "pr": "súp", "ep": "La soupe est chaude.", "es": "Súp nóng lắm."}, {"p": "La sauce", "s": "Nước sốt", "pr": "nướk sốt", "ep": "La sauce est piquante.", "es": "Nước sốt cay lắm."}, {"p": "Le dessert", "s": "Món tráng miệng", "pr": "món tráng miệng", "ep": "Le dessert est sucré.", "es": "Món tráng miệng ngọt lắm."}, {"p": "Le petit-déjeuner", "s": "Bữa sáng", "pr": "bữa sáng", "ep": "Le petit-déjeuner est à 7h.", "es": "Bữa sáng lúc 7 giờ."}, {"p": "Le déjeuner", "s": "Bữa trưa", "pr": "bữa trưa", "ep": "Le déjeuner est à midi.", "es": "Bữa trưa lúc 12 giờ."}, {"p": "Le dîner", "s": "Bữa tối", "pr": "bữa tối", "ep": "Le dîner est à 19h.", "es": "Bữa tối lúc 7 giờ tối."}, {"p": "Délicieux", "s": "Ngon", "pr": "ngon", "ep": "Ce plat est délicieux !", "es": "Món này ngon quá !"}, {"p": "Épicé", "s": "Cay", "pr": "kaye", "ep": "Ce plat est très épicé.", "es": "Món này cay lắm."}, {"p": "Sucré", "s": "Ngọt", "pr": "ngọt", "ep": "Ce gâteau est sucré.", "es": "Cái bánh này ngọt lắm."}, {"p": "Salé", "s": "Mặn", "pr": "mặn", "ep": "La soupe est trop salée.", "es": "Súp mặn quá."}], "dlg": [{"sp": "A", "p": "Qu'est-ce que tu veux manger ce soir ?", "s": "Tối nay bạn muốn ăn gì ?"}, {"sp": "B", "p": "J'ai envie de phở. C'est léger et délicieux.", "s": "Tôi thèm phở. Nhẹ bụng mà ngon lắm."}, {"sp": "A", "p": "Bonne idée ! Tu veux épicé ou pas ?", "s": "Ý hay đấy ! Bạn muốn cay hay không cay ?"}, {"sp": "B", "p": "Un peu épicé. Et toi, tu prends quoi ?", "s": "Cay một chút thôi. Còn bạn, bạn ăn gì ?"}, {"sp": "A", "p": "Moi, je prends du riz avec des légumes et du poisson.", "s": "Tôi ăn cơm với rau củ và cá."}, {"sp": "B", "p": "Et comme dessert, tu veux quelque chose de sucré ?", "s": "Còn món tráng miệng, bạn có muốn gì ngọt không ?"}]}, {"emoji": "🔢", "title": "Les chiffres", "subtitle": "Các số", "tab": "Les chiffres", "note": "Les chiffres vietnamiens sont très logiques : <b>mười một</b> = dix-un = 11. En français, <em>quatre-vingt</em> (80) et <em>quatre-vingt-dix</em> (90) sont des curiosités. Le système monétaire vietnamien utilise le <b>đồng</b> (VND). 1€ ≈ 25 000 VND.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Zéro", "s": "Không", "pr": "không", "ep": "Il y a zéro erreur.", "es": "Không có lỗi nào."}, {"p": "Un", "s": "Một", "pr": "một", "ep": "Un café, s'il vous plaît.", "es": "Cho tôi một cà phê."}, {"p": "Deux", "s": "Hai", "pr": "hai", "ep": "J'ai deux enfants.", "es": "Tôi có hai đứa con."}, {"p": "Trois", "s": "Ba", "pr": "ba", "ep": "Trois fois par semaine.", "es": "Ba lần mỗi tuần."}, {"p": "Quatre", "s": "Bốn", "pr": "bốn", "ep": "Il est quatre heures.", "es": "Bây giờ là bốn giờ."}, {"p": "Cinq", "s": "Năm", "pr": "năm", "ep": "Cinq euros, s'il vous plaît.", "es": "Năm euro, xin cảm ơn."}, {"p": "Six", "s": "Sáu", "pr": "sáu", "ep": "Le bus numéro six.", "es": "Xe buýt số sáu."}, {"p": "Sept", "s": "Bảy", "pr": "bảy", "ep": "Sept jours dans une semaine.", "es": "Một tuần có bảy ngày."}, {"p": "Huit", "s": "Tám", "pr": "tám", "ep": "Il est huit heures du matin.", "es": "Bây giờ là tám giờ sáng."}, {"p": "Neuf", "s": "Chín", "pr": "tsín", "ep": "Neuf mois de grossesse.", "es": "Chín tháng mang thai."}, {"p": "Dix", "s": "Mười", "pr": "mười", "ep": "Dix euros, merci.", "es": "Mười euro, cảm ơn."}, {"p": "Vingt", "s": "Hai mươi", "pr": "hai mươi", "ep": "J'ai vingt ans.", "es": "Tôi hai mươi tuổi."}, {"p": "Trente", "s": "Ba mươi", "pr": "ba mươi", "ep": "Il fait trente degrés.", "es": "Trời nóng ba mươi độ."}, {"p": "Cinquante", "s": "Năm mươi", "pr": "năm mươi", "ep": "Cinquante personnes.", "es": "Năm mươi người."}, {"p": "Cent", "s": "Một trăm", "pr": "một trăm", "ep": "Cent euros.", "es": "Một trăm euro."}, {"p": "Mille", "s": "Một nghìn", "pr": "một nghìn", "ep": "Mille merci !", "es": "Cảm ơn một nghìn lần !"}, {"p": "Un million", "s": "Một triệu", "pr": "một triệu", "ep": "Un million de personnes.", "es": "Một triệu người."}, {"p": "Premier", "s": "Thứ nhất", "pr": "thứ nhất", "ep": "C'est le premier jour.", "es": "Đây là ngày đầu tiên."}, {"p": "Dernier", "s": "Cuối cùng", "pr": "kuối kùng", "ep": "C'est la dernière chance.", "es": "Đây là cơ hội cuối cùng."}, {"p": "Combien", "s": "Bao nhiêu", "pr": "bao nhiêu", "ep": "Combien ça coûte ?", "es": "Cái này bao nhiêu tiền ?"}], "dlg": [{"sp": "A", "p": "Combien ça coûte, ce billet de train ?", "s": "Vé tàu hỏa này bao nhiêu tiền ?"}, {"sp": "B", "p": "Trente euros l'aller simple, cinquante euros l'aller-retour.", "s": "Ba mươi euro chiều đi, năm mươi euro khứ hồi."}, {"sp": "A", "p": "Je prends deux allers-retours, s'il vous plaît.", "s": "Cho tôi hai vé khứ hồi, xin cảm ơn."}, {"sp": "B", "p": "Ça fait cent euros au total.", "s": "Tổng cộng là một trăm euro."}, {"sp": "A", "p": "Voilà. Le train part à quelle heure ?", "s": "Đây ạ. Tàu khởi hành lúc mấy giờ ?"}, {"sp": "B", "p": "À huit heures et demie, quai numéro sept.", "s": "Lúc tám giờ rưỡi, sân ga số bảy."}]}, {"emoji": "👨‍👩‍👧", "title": "La famille", "subtitle": "Gia đình", "tab": "La famille", "note": "La famille est centrale dans la culture vietnamienne. Le système de <b>pronoms</b> reflète les relations familiales : <em>anh</em> (frère aîné/homme plus âgé), <em>chị</em> (soeur aînée), <em>em</em> (plus jeune). En France, la famille nucléaire est plus indépendante qu'en Asie.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La famille", "s": "Gia đình", "pr": "gia đình", "ep": "J'aime ma famille.", "es": "Tôi yêu gia đình tôi."}, {"p": "Le père", "s": "Bố", "pr": "bố", "ep": "Mon père est médecin.", "es": "Bố tôi là bác sĩ."}, {"p": "La mère", "s": "Mẹ", "pr": "mẹ", "ep": "Ma mère cuisine bien.", "es": "Mẹ tôi nấu ăn giỏi."}, {"p": "Le fils", "s": "Con trai", "pr": "kon trai", "ep": "Mon fils a cinq ans.", "es": "Con trai tôi năm tuổi."}, {"p": "La fille", "s": "Con gái", "pr": "kon gái", "ep": "Ma fille est étudiante.", "es": "Con gái tôi là sinh viên."}, {"p": "Le frère aîné", "s": "Anh trai", "pr": "anh trai", "ep": "Mon frère aîné est grand.", "es": "Anh trai tôi cao."}, {"p": "La sœur aînée", "s": "Chị gái", "pr": "tsị gái", "ep": "Ma sœur aînée est médecin.", "es": "Chị gái tôi là bác sĩ."}, {"p": "Le petit frère", "s": "Em trai", "pr": "em trai", "ep": "Mon petit frère joue au foot.", "es": "Em trai tôi chơi bóng đá."}, {"p": "La petite sœur", "s": "Em gái", "pr": "em gái", "ep": "Ma petite sœur est mignonne.", "es": "Em gái tôi dễ thương lắm."}, {"p": "Le grand-père", "s": "Ông", "pr": "ông", "ep": "Mon grand-père a 80 ans.", "es": "Ông tôi 80 tuổi."}, {"p": "La grand-mère", "s": "Bà", "pr": "bà", "ep": "Ma grand-mère fait du thé.", "es": "Bà tôi pha trà."}, {"p": "L'oncle", "s": "Chú", "pr": "tsú", "ep": "Mon oncle habite à Lyon.", "es": "Chú tôi sống ở Lyon."}, {"p": "La tante", "s": "Cô", "pr": "kô", "ep": "Ma tante est professeure.", "es": "Cô tôi là giáo viên."}, {"p": "Le cousin", "s": "Anh họ", "pr": "anh họ", "ep": "Mon cousin est sympa.", "es": "Anh họ tôi rất tốt bụng."}, {"p": "Le mari", "s": "Chồng", "pr": "tsồng", "ep": "Son mari est gentil.", "es": "Chồng cô ấy tốt bụng."}, {"p": "La femme", "s": "Vợ", "pr": "vợ", "ep": "Ma femme est avocate.", "es": "Vợ tôi là luật sư."}, {"p": "Les jumeaux", "s": "Sinh đôi", "pr": "sihn đôi", "ep": "Ils sont jumeaux.", "es": "Họ là sinh đôi."}, {"p": "Le bébé", "s": "Em bé", "pr": "em bé", "ep": "Le bébé dort.", "es": "Em bé đang ngủ."}, {"p": "Célibataire", "s": "Độc thân", "pr": "độk thân", "ep": "Je suis encore célibataire.", "es": "Tôi vẫn còn độc thân."}, {"p": "Marié", "s": "Đã kết hôn", "pr": "đã kết hôn", "ep": "Ils sont mariés depuis dix ans.", "es": "Họ kết hôn đã mười năm."}], "dlg": [{"sp": "A", "p": "Tu as des frères et sœurs ?", "s": "Bạn có anh chị em không ?"}, {"sp": "B", "p": "Oui, j'ai un frère aîné et une petite sœur. Et toi ?", "s": "Có, tôi có một anh trai và một em gái. Còn bạn ?"}, {"sp": "A", "p": "Moi je suis fils unique. Tes parents habitent où ?", "s": "Tôi là con một. Bố mẹ bạn sống ở đâu ?"}, {"sp": "B", "p": "Ils habitent à Hanoï avec mes grands-parents.", "s": "Họ sống ở Hà Nội cùng với ông bà tôi."}, {"sp": "A", "p": "Et ton frère aîné, il est marié ?", "s": "Còn anh trai bạn, anh ấy đã kết hôn chưa ?"}, {"sp": "B", "p": "Oui, depuis deux ans. Ils ont un bébé magnifique !", "s": "Rồi, hai năm rồi. Họ có một em bé rất dễ thương !"}]}, {"emoji": "🕐", "title": "L'heure et les jours", "subtitle": "Giờ và ngày tháng", "tab": "L'heure et les jours", "note": "Les jours vietnamiens sont <b>numérotés</b> : thứ Hai (lundi = jour 2) à thứ Bảy (samedi = jour 7), puis Chủ nhật (dimanche = jour du Seigneur). En France, le calendrier commence le lundi. Les mois sont numérotés dans les deux langues.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Quelle heure est-il", "s": "Mấy giờ rồi", "pr": "mấy giờ rồi", "ep": "Quelle heure est-il, s'il vous plaît ?", "es": "Xin hỏi, mấy giờ rồi ?"}, {"p": "Il est midi", "s": "Mười hai giờ", "pr": "mười hai giờ", "ep": "Il est midi, allons déjeuner !", "es": "Mười hai giờ rồi, đi ăn trưa thôi !"}, {"p": "Il est minuit", "s": "Nửa đêm", "pr": "nửa đêm", "ep": "Il est minuit, dors !", "es": "Nửa đêm rồi, đi ngủ thôi !"}, {"p": "Le matin", "s": "Buổi sáng", "pr": "buổi sáng", "ep": "Le matin, je fais du sport.", "es": "Buổi sáng tôi tập thể dục."}, {"p": "L'après-midi", "s": "Buổi chiều", "pr": "buổi chiều", "ep": "L'après-midi je travaille.", "es": "Buổi chiều tôi làm việc."}, {"p": "Le soir", "s": "Buổi tối", "pr": "buổi tối", "ep": "Le soir je regarde la télé.", "es": "Buổi tối tôi xem tivi."}, {"p": "Lundi", "s": "Thứ Hai", "pr": "thứ hai", "ep": "On se voit lundi.", "es": "Thứ Hai mình gặp nhau nhé."}, {"p": "Mardi", "s": "Thứ Ba", "pr": "thứ ba", "ep": "Le cours est mardi.", "es": "Buổi học vào thứ Ba."}, {"p": "Mercredi", "s": "Thứ Tư", "pr": "thứ tư", "ep": "Mercredi c'est le milieu de la semaine.", "es": "Thứ Tư là giữa tuần."}, {"p": "Jeudi", "s": "Thứ Năm", "pr": "thứ năm", "ep": "Le marché est jeudi.", "es": "Chợ họp vào thứ Năm."}, {"p": "Vendredi", "s": "Thứ Sáu", "pr": "thứ sáu", "ep": "Vendredi c'est le dernier jour.", "es": "Thứ Sáu là ngày cuối tuần."}, {"p": "Samedi", "s": "Thứ Bảy", "pr": "thứ bảy", "ep": "Le samedi je me repose.", "es": "Thứ Bảy tôi nghỉ ngơi."}, {"p": "Dimanche", "s": "Chủ nhật", "pr": "tsủ nhật", "ep": "Le dimanche est un jour de repos.", "es": "Chủ nhật là ngày nghỉ."}, {"p": "Aujourd'hui", "s": "Hôm nay", "pr": "hôm nay", "ep": "Aujourd'hui il fait beau.", "es": "Hôm nay trời đẹp."}, {"p": "Demain", "s": "Ngày mai", "pr": "ngày mai", "ep": "À demain !", "es": "Hẹn gặp ngày mai !"}, {"p": "Hier", "s": "Hôm qua", "pr": "hôm qua", "ep": "Hier j'étais malade.", "es": "Hôm qua tôi bị ốm."}, {"p": "La semaine prochaine", "s": "Tuần tới", "pr": "tuần tới", "ep": "On se voit la semaine prochaine.", "es": "Tuần tới mình gặp nhau nhé."}, {"p": "Le mois prochain", "s": "Tháng tới", "pr": "tháng tới", "ep": "Le mois prochain je pars en voyage.", "es": "Tháng tới tôi đi du lịch."}, {"p": "L'année prochaine", "s": "Năm tới", "pr": "năm tới", "ep": "L'année prochaine je serai en France.", "es": "Năm tới tôi sẽ ở Pháp."}, {"p": "Maintenant", "s": "Bây giờ", "pr": "bây giờ", "ep": "Viens maintenant !", "es": "Đến ngay bây giờ đi !"}], "dlg": [{"sp": "A", "p": "Quelle heure est-il ?", "s": "Mấy giờ rồi ?"}, {"sp": "B", "p": "Il est neuf heures et demie du matin.", "s": "Chín giờ rưỡi sáng rồi."}, {"sp": "A", "p": "On se retrouve à midi pour déjeuner ?", "s": "Mười hai giờ mình gặp nhau ăn trưa nhé ?"}, {"sp": "B", "p": "Désolé, ce midi je suis occupé. Demain ?", "s": "Xin lỗi, trưa nay tôi bận. Ngày mai được không ?"}, {"sp": "A", "p": "Demain je pars à Lyon. La semaine prochaine alors ?", "s": "Ngày mai tôi đi Lyon. Tuần tới được không ?"}, {"sp": "B", "p": "Parfait ! Lundi à 13h ?", "s": "Tuyệt ! Thứ Hai lúc 1 giờ chiều nhé ?"}]}, {"emoji": "🏙️", "title": "La ville", "subtitle": "Thành phố", "tab": "La ville", "note": "Pour demander son chemin : <b>Excusez-moi, pourriez-vous m'indiquer…</b> Les grandes villes vietnamiennes : Hanoï (capitale), Hô Chi Minh-Ville (la plus grande), Da Nang (centrale). En France : Paris, Lyon, Marseille, Bordeaux, Lille.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La rue", "s": "Con đường", "pr": "kon đường", "ep": "Quelle rue cherchez-vous ?", "es": "Bạn tìm đường nào ?"}, {"p": "Le quartier", "s": "Khu phố", "pr": "ku phố", "ep": "C'est un beau quartier.", "es": "Đây là một khu phố đẹp."}, {"p": "Le centre-ville", "s": "Trung tâm thành phố", "pr": "trung tâm thành phố", "ep": "Je vais au centre-ville.", "es": "Tôi đi vào trung tâm thành phố."}, {"p": "Le marché", "s": "Cái chợ", "pr": "kái chợ", "ep": "Je vais au marché.", "es": "Tôi đi chợ."}, {"p": "L'hôpital", "s": "Bệnh viện", "pr": "bệnh viện", "ep": "L'hôpital est à droite.", "es": "Bệnh viện ở bên phải."}, {"p": "La pharmacie", "s": "Hiệu thuốc", "pr": "hiệu thuốk", "ep": "Il y a une pharmacie ici ?", "es": "Ở đây có hiệu thuốc không ?"}, {"p": "La gare", "s": "Nhà ga", "pr": "nhà ga", "ep": "La gare est loin d'ici.", "es": "Nhà ga xa đây lắm."}, {"p": "L'aéroport", "s": "Sân bay", "pr": "sân bay", "ep": "L'aéroport est à 20 km.", "es": "Sân bay cách đây 20 km."}, {"p": "La banque", "s": "Ngân hàng", "pr": "ngân hàng", "ep": "La banque est en face.", "es": "Ngân hàng ở đối diện."}, {"p": "La poste", "s": "Bưu điện", "pr": "bưu điện", "ep": "Où est la poste ?", "es": "Bưu điện ở đâu ?"}, {"p": "À gauche", "s": "Bên trái", "pr": "bên trái", "ep": "Tournez à gauche.", "es": "Rẽ bên trái."}, {"p": "À droite", "s": "Bên phải", "pr": "bên phải", "ep": "La banque est à droite.", "es": "Ngân hàng ở bên phải."}, {"p": "Tout droit", "s": "Đi thẳng", "pr": "đi thẳng", "ep": "Allez tout droit.", "es": "Đi thẳng."}, {"p": "En face de", "s": "Đối diện với", "pr": "đối diện với", "ep": "La banque est en face de la poste.", "es": "Ngân hàng ở đối diện bưu điện."}, {"p": "À côté de", "s": "Bên cạnh", "pr": "bên kạnh", "ep": "L'école est à côté de la mairie.", "es": "Trường học ở bên cạnh tòa thị chính."}, {"p": "Loin", "s": "Xa", "pr": "sa", "ep": "C'est loin d'ici ?", "es": "Chỗ đó xa đây không ?"}, {"p": "Près", "s": "Gần", "pr": "gần", "ep": "C'est près, à 5 minutes.", "es": "Gần thôi, 5 phút đi bộ."}, {"p": "Le pont", "s": "Cây cầu", "pr": "kây kầu", "ep": "Le pont est magnifique.", "es": "Cây cầu rất đẹp."}, {"p": "La place", "s": "Quảng trường", "pr": "kwảng trường", "ep": "La place est pleine de monde.", "es": "Quảng trường đông người lắm."}, {"p": "Le parc", "s": "Công viên", "pr": "công viên", "ep": "Je me promène dans le parc.", "es": "Tôi đi dạo trong công viên."}], "dlg": [{"sp": "A", "p": "Excusez-moi, pourriez-vous m'indiquer la gare ?", "s": "Xin lỗi, bạn có thể chỉ đường đến nhà ga cho tôi không ?"}, {"sp": "B", "p": "Bien sûr ! Allez tout droit, puis tournez à gauche au pont.", "s": "Tất nhiên ! Đi thẳng, rồi rẽ trái ở cây cầu."}, {"sp": "A", "p": "C'est loin ?", "s": "Có xa không ?"}, {"sp": "B", "p": "Non, à 10 minutes à pied. La gare est en face du parc.", "s": "Không, đi bộ 10 phút thôi. Nhà ga ở đối diện công viên."}, {"sp": "A", "p": "Merci beaucoup ! Il y a une pharmacie près d'ici ?", "s": "Cảm ơn rất nhiều ! Gần đây có hiệu thuốc không ?"}, {"sp": "B", "p": "Oui, à côté de la banque, à droite !", "s": "Có, bên cạnh ngân hàng, ở bên phải !"}]}, {"emoji": "💼", "title": "Le travail", "subtitle": "Công việc", "tab": "Le travail", "note": "En France, la durée légale du travail est de <b>35 heures</b> par semaine. Au Vietnam, c'est <b>48 heures</b>. Le concept de <em>work-life balance</em> est très développé en France. Les <em>congés payés</em> français (5 semaines) sont parmi les plus généreux au monde.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Le travail", "s": "Công việc", "pr": "công việk", "ep": "Mon travail est intéressant.", "es": "Công việc của tôi thú vị lắm."}, {"p": "Le bureau", "s": "Văn phòng", "pr": "văn phòng", "ep": "Je travaille dans un bureau.", "es": "Tôi làm việc trong văn phòng."}, {"p": "Le patron", "s": "Sếp", "pr": "sếp", "ep": "Mon patron est sympa.", "es": "Sếp của tôi tốt bụng lắm."}, {"p": "Le collègue", "s": "Đồng nghiệp", "pr": "đồng nghiệp", "ep": "J'aime mes collègues.", "es": "Tôi yêu quý đồng nghiệp của mình."}, {"p": "Le salaire", "s": "Lương", "pr": "lương", "ep": "Mon salaire est correct.", "es": "Lương của tôi ổn."}, {"p": "La réunion", "s": "Cuộc họp", "pr": "kuộk họp", "ep": "J'ai une réunion à 10h.", "es": "Tôi có cuộc họp lúc 10 giờ."}, {"p": "L'email", "s": "Email", "pr": "email", "ep": "J'envoie un email.", "es": "Tôi gửi một email."}, {"p": "Le projet", "s": "Dự án", "pr": "zự án", "ep": "Mon projet avance bien.", "es": "Dự án của tôi tiến triển tốt."}, {"p": "La réunion", "s": "Cuộc họp", "pr": "kuộk họp", "ep": "La réunion dure deux heures.", "es": "Cuộc họp kéo dài hai tiếng."}, {"p": "Le CV", "s": "Hồ sơ xin việc", "pr": "hồ sơ sin việk", "ep": "J'envoie mon CV.", "es": "Tôi gửi hồ sơ xin việc."}, {"p": "L'entretien", "s": "Phỏng vấn", "pr": "phỏng vấn", "ep": "J'ai un entretien demain.", "es": "Ngày mai tôi có buổi phỏng vấn."}, {"p": "Travailler", "s": "Làm việc", "pr": "làm việk", "ep": "Je travaille tous les jours.", "es": "Tôi làm việc mỗi ngày."}, {"p": "Le congé", "s": "Ngày nghỉ", "pr": "ngày nghỉ", "ep": "Je prends un congé demain.", "es": "Ngày mai tôi nghỉ."}, {"p": "La pause", "s": "Giờ nghỉ", "pr": "giờ nghỉ", "ep": "C'est l'heure de la pause.", "es": "Đến giờ nghỉ rồi."}, {"p": "Télétravail", "s": "Làm việc từ xa", "pr": "làm việk từ sa", "ep": "Je fais du télétravail.", "es": "Tôi làm việc từ xa."}, {"p": "La retraite", "s": "Nghỉ hưu", "pr": "nghỉ hưu", "ep": "Mon père est à la retraite.", "es": "Bố tôi đã nghỉ hưu."}, {"p": "L'entreprise", "s": "Công ty", "pr": "công ti", "ep": "Je travaille dans une grande entreprise.", "es": "Tôi làm việc trong một công ty lớn."}, {"p": "Le stage", "s": "Thực tập", "pr": "thực tập", "ep": "Je fais un stage en entreprise.", "es": "Tôi đang thực tập tại một công ty."}, {"p": "Le licenciement", "s": "Sa thải", "pr": "sa thải", "ep": "Il a été licencié.", "es": "Anh ấy bị sa thải."}, {"p": "Embaucher", "s": "Tuyển dụng", "pr": "tuyển zụng", "ep": "L'entreprise embauche.", "es": "Công ty đang tuyển dụng."}], "dlg": [{"sp": "A", "p": "Tu travailles dans quel secteur ?", "s": "Bạn làm việc trong lĩnh vực nào ?"}, {"sp": "B", "p": "Je travaille dans une entreprise tech, en télétravail.", "s": "Tôi làm việc trong một công ty công nghệ, làm việc từ xa."}, {"sp": "A", "p": "C'est bien le télétravail ! Tu n'as pas de réunions ?", "s": "Làm việc từ xa hay đấy ! Bạn không có cuộc họp sao ?"}, {"sp": "B", "p": "Si, beaucoup de réunions en ligne. Et toi ?", "s": "Có chứ, nhiều cuộc họp trực tuyến lắm. Còn bạn ?"}, {"sp": "A", "p": "Moi je travaille dans un bureau. Le patron est exigeant.", "s": "Tôi làm việc trong văn phòng. Sếp rất khắt khe."}, {"sp": "B", "p": "Tu cherches un nouveau travail ? Mon entreprise embauche !", "s": "Bạn đang tìm việc mới à ? Công ty tôi đang tuyển dụng đó !"}]}, {"emoji": "🏥", "title": "La santé", "subtitle": "Sức khỏe", "tab": "La santé", "note": "En France, la Sécurité sociale (<b>sécu</b>) rembourse une grande partie des soins médicaux. Au Vietnam, l'assurance maladie (<b>bảo hiểm y tế</b>) se développe. La médecine traditionnelle vietnamienne (<em>Đông y</em>) est encore très pratiquée en parallèle de la médecine moderne.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La santé", "s": "Sức khỏe", "pr": "sứk kẻ", "ep": "La santé avant tout !", "es": "Sức khỏe là trên hết !"}, {"p": "Le médecin", "s": "Bác sĩ", "pr": "bák sĩ", "ep": "Je consulte mon médecin.", "es": "Tôi đến gặp bác sĩ."}, {"p": "L'hôpital", "s": "Bệnh viện", "pr": "bệnh viện", "ep": "Je suis à l'hôpital.", "es": "Tôi đang ở bệnh viện."}, {"p": "La pharmacie", "s": "Hiệu thuốc", "pr": "hiệu thuốk", "ep": "Je vais à la pharmacie.", "es": "Tôi đi hiệu thuốc."}, {"p": "Le médicament", "s": "Thuốc", "pr": "thuốk", "ep": "Je prends mes médicaments.", "es": "Tôi uống thuốc."}, {"p": "La douleur", "s": "Cơn đau", "pr": "kơn đau", "ep": "J'ai mal, j'ai de la douleur.", "es": "Tôi bị đau."}, {"p": "La fièvre", "s": "Sốt", "pr": "sốt", "ep": "J'ai de la fièvre.", "es": "Tôi bị sốt."}, {"p": "La toux", "s": "Ho", "pr": "ho", "ep": "J'ai la toux.", "es": "Tôi bị ho."}, {"p": "Le rhume", "s": "Cảm lạnh", "pr": "kảm lạnh", "ep": "J'ai un rhume.", "es": "Tôi bị cảm lạnh."}, {"p": "La grippe", "s": "Cúm", "pr": "kúm", "ep": "J'ai la grippe.", "es": "Tôi bị cúm."}, {"p": "L'allergie", "s": "Dị ứng", "pr": "zị ứng", "ep": "J'ai une allergie.", "es": "Tôi bị dị ứng."}, {"p": "L'opération", "s": "Phẫu thuật", "pr": "phẫu thuật", "ep": "J'ai subi une opération.", "es": "Tôi đã trải qua phẫu thuật."}, {"p": "Le vaccin", "s": "Vắc-xin", "pr": "vắk-sin", "ep": "Je me vaccine.", "es": "Tôi đi tiêm vắc-xin."}, {"p": "Le rendez-vous", "s": "Lịch hẹn khám", "pr": "lịch hẹn khám", "ep": "J'ai un rendez-vous chez le médecin.", "es": "Tôi có lịch hẹn khám bác sĩ."}, {"p": "L'ordonnance", "s": "Đơn thuốc", "pr": "đơn thuốk", "ep": "Voici votre ordonnance.", "es": "Đây là đơn thuốc của bạn."}, {"p": "Le sang", "s": "Máu", "pr": "máu", "ep": "Il faut faire une prise de sang.", "es": "Cần phải xét nghiệm máu."}, {"p": "Malade", "s": "Bệnh", "pr": "bệnh", "ep": "Je suis malade.", "es": "Tôi bị bệnh."}, {"p": "Guéri", "s": "Khỏi bệnh", "pr": "kỏi bệnh", "ep": "Je suis guéri maintenant.", "es": "Bây giờ tôi đã khỏi bệnh rồi."}, {"p": "Se sentir bien", "s": "Cảm thấy khỏe", "pr": "kảm thấy kẻ", "ep": "Je me sens bien aujourd'hui.", "es": "Hôm nay tôi cảm thấy khỏe."}, {"p": "Urgences", "s": "Cấp cứu", "pr": "kấp kứu", "ep": "Je vais aux urgences.", "es": "Tôi đi cấp cứu."}], "dlg": [{"sp": "A", "p": "Je ne me sens pas bien. J'ai de la fièvre.", "s": "Tôi không được khỏe. Tôi bị sốt."}, {"sp": "B", "p": "Tu as pris des médicaments ?", "s": "Bạn đã uống thuốc chưa ?"}, {"sp": "A", "p": "Oui, mais j'ai encore la toux et des douleurs.", "s": "Rồi, nhưng tôi vẫn còn ho và đau."}, {"sp": "B", "p": "Il faut aller chez le médecin. Tu as un rendez-vous ?", "s": "Phải đi khám bác sĩ thôi. Bạn có lịch hẹn chưa ?"}, {"sp": "A", "p": "Non, mais je vais appeler la pharmacie d'abord.", "s": "Chưa, nhưng tôi sẽ gọi điện cho hiệu thuốc trước."}, {"sp": "B", "p": "D'accord. Si ça empire, va aux urgences !", "s": "Được rồi. Nếu nặng hơn thì đi cấp cứu nhé !"}]}, {"emoji": "🎓", "title": "L'école", "subtitle": "Trường học", "tab": "L'école", "note": "En France, l'école est <b>obligatoire</b> de 3 à 16 ans. Le système : maternelle → primaire → collège → lycée → université. Au Vietnam, l'éducation est très valorisée culturellement. Le <em>baccalauréat</em> vietnamien (<b>thi THPT</b>) est très compétitif.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "L'école", "s": "Trường học", "pr": "trường họk", "ep": "Je vais à l'école.", "es": "Tôi đi học."}, {"p": "L'université", "s": "Trường đại học", "pr": "trường đại họk", "ep": "Je suis à l'université.", "es": "Tôi đang học đại học."}, {"p": "Le professeur", "s": "Giáo viên", "pr": "giáo viên", "ep": "Mon professeur est sévère.", "es": "Giáo viên của tôi rất nghiêm."}, {"p": "L'élève", "s": "Học sinh", "pr": "họk sinh", "ep": "Les élèves étudient bien.", "es": "Học sinh học hành chăm chỉ."}, {"p": "L'étudiant", "s": "Sinh viên", "pr": "sinh viên", "ep": "Je suis étudiant.", "es": "Tôi là sinh viên."}, {"p": "La classe", "s": "Lớp học", "pr": "lớp họk", "ep": "La classe est bruyante.", "es": "Lớp học ồn ào lắm."}, {"p": "Le cours", "s": "Buổi học", "pr": "buổi họk", "ep": "Le cours commence à 8h.", "es": "Buổi học bắt đầu lúc 8 giờ."}, {"p": "L'examen", "s": "Kỳ thi", "pr": "kỳ thi", "ep": "J'ai un examen demain.", "es": "Ngày mai tôi có kỳ thi."}, {"p": "La note", "s": "Điểm số", "pr": "điểm số", "ep": "J'ai une bonne note.", "es": "Tôi được điểm cao."}, {"p": "Les devoirs", "s": "Bài tập về nhà", "pr": "bài tập về nhà", "ep": "Je fais mes devoirs.", "es": "Tôi làm bài tập về nhà."}, {"p": "Le cartable", "s": "Cặp sách", "pr": "kặp sách", "ep": "Mon cartable est lourd.", "es": "Cặp sách của tôi nặng lắm."}, {"p": "Le crayon", "s": "Bút chì", "pr": "bút tsì", "ep": "Je dessine avec un crayon.", "es": "Tôi vẽ bằng bút chì."}, {"p": "Le livre", "s": "Quyển sách", "pr": "kuyển sách", "ep": "Le livre est intéressant.", "es": "Quyển sách rất thú vị."}, {"p": "Le cahier", "s": "Quyển vở", "pr": "kuyển vở", "ep": "Mon cahier est bien rempli.", "es": "Quyển vở của tôi đầy rồi."}, {"p": "La bibliothèque", "s": "Thư viện", "pr": "thư viện", "ep": "Je lis à la bibliothèque.", "es": "Tôi đọc sách ở thư viện."}, {"p": "La récréation", "s": "Giờ ra chơi", "pr": "giờ ra tsơi", "ep": "Les enfants jouent pendant la récréation.", "es": "Các em học sinh chơi trong giờ ra chơi."}, {"p": "Le diplôme", "s": "Bằng cấp", "pr": "bằng kấp", "ep": "J'ai obtenu mon diplôme.", "es": "Tôi đã lấy được bằng cấp."}, {"p": "Le baccalauréat", "s": "Kỳ thi THPT", "pr": "kỳ thi THPT", "ep": "Il a réussi son baccalauréat.", "es": "Anh ấy đã vượt qua kỳ thi THPT."}, {"p": "Étudier", "s": "Học tập", "pr": "họk tập", "ep": "J'étudie tous les soirs.", "es": "Tôi học tập mỗi tối."}, {"p": "Réussir", "s": "Thành công", "pr": "thành công", "ep": "J'espère réussir l'examen.", "es": "Tôi hy vọng thi đỗ."}], "dlg": [{"sp": "A", "p": "Tu es encore étudiant ?", "s": "Bạn còn đang học không ?"}, {"sp": "B", "p": "Oui, je suis en troisième année à l'université.", "s": "Vâng, tôi đang học năm thứ ba đại học."}, {"sp": "A", "p": "Tu étudies quoi ?", "s": "Bạn học ngành gì ?"}, {"sp": "B", "p": "J'étudie l'informatique. J'ai un examen important demain.", "s": "Tôi học ngành công nghệ thông tin. Ngày mai tôi có kỳ thi quan trọng."}, {"sp": "A", "p": "Bonne chance ! Tu as fait tes devoirs ?", "s": "Chúc may mắn ! Bạn đã làm bài tập chưa ?"}, {"sp": "B", "p": "Oui, j'ai étudié jusqu'à minuit à la bibliothèque.", "s": "Rồi, tôi học ở thư viện đến nửa đêm."}]}, {"emoji": "🛍️", "title": "Les achats", "subtitle": "Mua sắm", "tab": "Les achats", "note": "En France, les marchés (<b>marchés de plein air</b>) sont très populaires le week-end. Les soldes ont lieu deux fois par an. Au Vietnam, les marchés couverts (<b>chợ</b>) sont omniprésents. Le marchandage est courant au Vietnam mais rare en France.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Acheter", "s": "Mua", "pr": "mua", "ep": "J'achète des légumes.", "es": "Tôi mua rau củ."}, {"p": "Vendre", "s": "Bán", "pr": "bán", "ep": "Il vend des fleurs.", "es": "Anh ấy bán hoa."}, {"p": "Le prix", "s": "Giá", "pr": "giá", "ep": "Quel est le prix ?", "es": "Giá bao nhiêu ?"}, {"p": "Cher", "s": "Đắt", "pr": "đắt", "ep": "C'est trop cher !", "es": "Đắt quá !"}, {"p": "Bon marché", "s": "Rẻ", "pr": "rẻ", "ep": "C'est bon marché.", "es": "Giá rẻ lắm."}, {"p": "Payer", "s": "Thanh toán", "pr": "thanh toán", "ep": "Je paie par carte.", "es": "Tôi thanh toán bằng thẻ."}, {"p": "La monnaie", "s": "Tiền thối", "pr": "tiền thối", "ep": "Gardez la monnaie.", "es": "Giữ lại tiền thối."}, {"p": "Le reçu", "s": "Hóa đơn", "pr": "hóa đơn", "ep": "Je veux un reçu.", "es": "Cho tôi xin hóa đơn."}, {"p": "Les soldes", "s": "Giảm giá", "pr": "giảm giá", "ep": "Les soldes commencent demain.", "es": "Giảm giá bắt đầu từ ngày mai."}, {"p": "La promotion", "s": "Khuyến mãi", "pr": "khuyến mãi", "ep": "Il y a une promotion.", "es": "Có chương trình khuyến mãi."}, {"p": "La taille", "s": "Kích cỡ", "pr": "kích kỡ", "ep": "Quelle est votre taille ?", "es": "Bạn mặc size bao nhiêu ?"}, {"p": "La couleur", "s": "Màu sắc", "pr": "màu sắk", "ep": "Quelle couleur vous plaît ?", "es": "Bạn thích màu gì ?"}, {"p": "L'essayage", "s": "Thử đồ", "pr": "thử đồ", "ep": "Je veux essayer cette robe.", "es": "Tôi muốn thử chiếc váy này."}, {"p": "La caisse", "s": "Quầy thu ngân", "pr": "kwầy thu ngân", "ep": "La caisse est là-bas.", "es": "Quầy thu ngân ở đằng kia."}, {"p": "Le ticket", "s": "Phiếu giảm giá", "pr": "phiếu giảm giá", "ep": "J'ai un ticket de réduction.", "es": "Tôi có phiếu giảm giá."}, {"p": "Échanger", "s": "Đổi hàng", "pr": "đổi hàng", "ep": "Je veux échanger ce produit.", "es": "Tôi muốn đổi sản phẩm này."}, {"p": "Rembourser", "s": "Hoàn tiền", "pr": "hoàn tiền", "ep": "Pouvez-vous me rembourser ?", "es": "Bạn có thể hoàn tiền cho tôi không ?"}, {"p": "Le marché", "s": "Chợ", "pr": "tsợ", "ep": "Le marché est ouvert le dimanche.", "es": "Chợ mở cửa vào Chủ nhật."}, {"p": "Le supermarché", "s": "Siêu thị", "pr": "siêu thị", "ep": "Je vais au supermarché.", "es": "Tôi đi siêu thị."}, {"p": "Marchander", "s": "Mặc cả", "pr": "mặk kả", "ep": "On peut marchander au marché.", "es": "Ở chợ có thể mặc cả."}], "dlg": [{"sp": "A", "p": "Combien coûte cette robe ?", "s": "Cái váy này giá bao nhiêu ?"}, {"sp": "B", "p": "Elle coûte 45 euros. Mais il y a une promotion : 20% de réduction !", "s": "Giá 45 euro. Nhưng có khuyến mãi : giảm 20% !"}, {"sp": "A", "p": "Super ! Est-ce que je peux l'essayer ?", "s": "Tuyệt ! Tôi có thể thử không ?"}, {"sp": "B", "p": "Bien sûr ! Les cabines d'essayage sont là-bas.", "s": "Tất nhiên ! Phòng thử đồ ở đằng kia."}, {"sp": "A", "p": "Elle me va bien ! Je la prends. Je peux payer par carte ?", "s": "Hợp tôi lắm ! Tôi lấy cái này. Tôi có thể trả bằng thẻ không ?"}, {"sp": "B", "p": "Oui, bien sûr. Je vous donne un reçu.", "s": "Vâng, tất nhiên. Tôi sẽ đưa cho bạn hóa đơn."}]}, {"emoji": "✈️", "title": "Les voyages", "subtitle": "Du lịch", "tab": "Les voyages", "note": "La France est la 1ère destination touristique mondiale. Le Vietnam attire chaque année des millions de visiteurs pour ses paysages (<b>baie d'Ha Long</b>, <b>Hoi An</b>, <b>Phú Quốc</b>). Le passeport vietnamien a accès à 57 pays sans visa.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Voyager", "s": "Du lịch", "pr": "zu lịch", "ep": "J'adore voyager.", "es": "Tôi rất thích du lịch."}, {"p": "Le passeport", "s": "Hộ chiếu", "pr": "hộ tsiếu", "ep": "Mon passeport est valide.", "es": "Hộ chiếu của tôi còn hạn."}, {"p": "Le visa", "s": "Thị thực", "pr": "thị thực", "ep": "Je dois obtenir un visa.", "es": "Tôi phải xin thị thực."}, {"p": "L'hôtel", "s": "Khách sạn", "pr": "khách sạn", "ep": "L'hôtel est confortable.", "es": "Khách sạn rất thoải mái."}, {"p": "La valise", "s": "Va li", "pr": "va li", "ep": "Ma valise est lourde.", "es": "Va li của tôi nặng lắm."}, {"p": "Le vol", "s": "Chuyến bay", "pr": "tsuyến bay", "ep": "Mon vol est à 8h.", "es": "Chuyến bay của tôi lúc 8 giờ."}, {"p": "L'enregistrement", "s": "Làm thủ tục", "pr": "làm thủ tụk", "ep": "L'enregistrement commence à 6h.", "es": "Làm thủ tục từ 6 giờ."}, {"p": "La carte d'embarquement", "s": "Thẻ lên máy bay", "pr": "thẻ lên máy bay", "ep": "Voici votre carte d'embarquement.", "es": "Đây là thẻ lên máy bay của bạn."}, {"p": "Le décalage horaire", "s": "Lệch múi giờ", "pr": "lệch múi giờ", "ep": "J'ai un décalage horaire.", "es": "Tôi bị lệch múi giờ."}, {"p": "La réservation", "s": "Đặt phòng", "pr": "đặt phòng", "ep": "J'ai fait une réservation.", "es": "Tôi đã đặt phòng rồi."}, {"p": "L'assurance voyage", "s": "Bảo hiểm du lịch", "pr": "bảo hiểm zu lịch", "ep": "J'ai une assurance voyage.", "es": "Tôi có bảo hiểm du lịch."}, {"p": "Le guide touristique", "s": "Hướng dẫn viên", "pr": "hướng zẫn viên", "ep": "Le guide touristique est excellent.", "es": "Hướng dẫn viên du lịch rất giỏi."}, {"p": "La carte", "s": "Bản đồ", "pr": "bản đồ", "ep": "J'ai besoin d'une carte.", "es": "Tôi cần một bản đồ."}, {"p": "La frontière", "s": "Biên giới", "pr": "biên giới", "ep": "Nous passons la frontière.", "es": "Chúng tôi qua biên giới."}, {"p": "Atterrir", "s": "Hạ cánh", "pr": "hạ kánh", "ep": "L'avion atterrit à 14h.", "es": "Máy bay hạ cánh lúc 2 giờ chiều."}, {"p": "Décoller", "s": "Cất cánh", "pr": "kất kánh", "ep": "L'avion décolle à 8h.", "es": "Máy bay cất cánh lúc 8 giờ."}, {"p": "L'escale", "s": "Điểm dừng chân", "pr": "điểm zừng tsân", "ep": "Mon vol a une escale à Bangkok.", "es": "Chuyến bay của tôi có điểm dừng ở Bangkok."}, {"p": "La destination", "s": "Điểm đến", "pr": "điểm đến", "ep": "Ma destination est Hanoï.", "es": "Điểm đến của tôi là Hà Nội."}, {"p": "Le touriste", "s": "Khách du lịch", "pr": "khách zu lịch", "ep": "Il y a beaucoup de touristes.", "es": "Có rất nhiều khách du lịch."}, {"p": "Se perdre", "s": "Bị lạc", "pr": "bị lạk", "ep": "Je me suis perdu.", "es": "Tôi bị lạc rồi."}], "dlg": [{"sp": "A", "p": "Tu pars en voyage bientôt ?", "s": "Bạn sắp đi du lịch không ?"}, {"sp": "B", "p": "Oui ! Je vais au Vietnam le mois prochain !", "s": "Có ! Tháng tới tôi đi Việt Nam !"}, {"sp": "A", "p": "Super ! Tu as fait ta réservation d'hôtel ?", "s": "Tuyệt ! Bạn đã đặt phòng khách sạn chưa ?"}, {"sp": "B", "p": "Oui, et j'ai mon visa. Mon vol a une escale à Bangkok.", "s": "Rồi, và tôi có thị thực rồi. Chuyến bay của tôi có điểm dừng ở Bangkok."}, {"sp": "A", "p": "Le décalage horaire sera de 5 heures.", "s": "Lệch múi giờ sẽ là 5 tiếng đó."}, {"sp": "B", "p": "Je sais. J'espère ne pas me perdre à l'aéroport !", "s": "Tôi biết rồi. Tôi hy vọng không bị lạc ở sân bay !"}]}, {"emoji": "🎨", "title": "Les couleurs et formes", "subtitle": "Màu sắc và hình dạng", "tab": "Les couleurs et formes", "note": "Les couleurs ont des significations culturelles différentes. En France, le <b>blanc</b> est la couleur du deuil autrefois ; aujourd'hui c'est le noir. Au Vietnam, le <b>blanc</b> est associé au deuil et le <b>rouge</b> au bonheur et à la chance.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Rouge", "s": "Màu đỏ", "pr": "màu đỏ", "ep": "La rose est rouge.", "es": "Hoa hồng màu đỏ."}, {"p": "Bleu", "s": "Màu xanh dương", "pr": "màu sanh zương", "ep": "Le ciel est bleu.", "es": "Bầu trời màu xanh dương."}, {"p": "Vert", "s": "Màu xanh lá", "pr": "màu sanh lá", "ep": "L'herbe est verte.", "es": "Cỏ màu xanh lá."}, {"p": "Jaune", "s": "Màu vàng", "pr": "màu vàng", "ep": "Le soleil est jaune.", "es": "Mặt trời màu vàng."}, {"p": "Blanc", "s": "Màu trắng", "pr": "màu trắng", "ep": "La neige est blanche.", "es": "Tuyết màu trắng."}, {"p": "Noir", "s": "Màu đen", "pr": "màu đen", "ep": "La nuit est noire.", "es": "Đêm tối màu đen."}, {"p": "Orange", "s": "Màu cam", "pr": "màu kam", "ep": "L'orange est orange.", "es": "Quả cam màu cam."}, {"p": "Violet", "s": "Màu tím", "pr": "màu tím", "ep": "La lavande est violette.", "es": "Hoa oải hương màu tím."}, {"p": "Rose", "s": "Màu hồng", "pr": "màu hồng", "ep": "Sa robe est rose.", "es": "Váy của cô ấy màu hồng."}, {"p": "Marron", "s": "Màu nâu", "pr": "màu nâu", "ep": "Le chocolat est marron.", "es": "Socola màu nâu."}, {"p": "Gris", "s": "Màu xám", "pr": "màu sám", "ep": "Le ciel est gris.", "es": "Bầu trời màu xám."}, {"p": "Le cercle", "s": "Hình tròn", "pr": "hình tròn", "ep": "Le soleil est un cercle.", "es": "Mặt trời hình tròn."}, {"p": "Le carré", "s": "Hình vuông", "pr": "hình vuông", "ep": "La fenêtre est carrée.", "es": "Cái cửa sổ hình vuông."}, {"p": "Le triangle", "s": "Hình tam giác", "pr": "hình tam giák", "ep": "La pyramide est un triangle.", "es": "Kim tự tháp hình tam giác."}, {"p": "Le rectangle", "s": "Hình chữ nhật", "pr": "hình tsữ nhật", "ep": "La porte est un rectangle.", "es": "Cái cửa hình chữ nhật."}, {"p": "Grand", "s": "To", "pr": "to", "ep": "La maison est grande.", "es": "Ngôi nhà rất to."}, {"p": "Petit", "s": "Nhỏ", "pr": "nhỏ", "ep": "Le chat est petit.", "es": "Con mèo rất nhỏ."}, {"p": "Rond", "s": "Tròn", "pr": "tròn", "ep": "La table est ronde.", "es": "Cái bàn tròn."}, {"p": "Plat", "s": "Phẳng", "pr": "phẳng", "ep": "La route est plate.", "es": "Con đường phẳng lắm."}, {"p": "Profond", "s": "Sâu", "pr": "sâu", "ep": "Le lac est profond.", "es": "Cái hồ rất sâu."}], "dlg": [{"sp": "A", "p": "Tu aimes quelle couleur ?", "s": "Bạn thích màu gì ?"}, {"sp": "B", "p": "J'aime le bleu. C'est la couleur du ciel et de la mer.", "s": "Tôi thích màu xanh dương. Đó là màu của bầu trời và biển cả."}, {"sp": "A", "p": "Moi c'est le rouge ! Au Vietnam le rouge porte bonheur.", "s": "Còn tôi thích màu đỏ ! Ở Việt Nam màu đỏ mang lại may mắn."}, {"sp": "B", "p": "Intéressant ! En France on associe le rouge à l'amour et au danger.", "s": "Thú vị nhỉ ! Ở Pháp người ta liên tưởng màu đỏ với tình yêu và nguy hiểm."}, {"sp": "A", "p": "Et le blanc ? En France c'est la couleur du mariage ?", "s": "Còn màu trắng ? Ở Pháp màu trắng là màu của hôn lễ à ?"}, {"sp": "B", "p": "Oui ! Mais au Vietnam c'est la couleur du deuil, n'est-ce pas ?", "s": "Vâng ! Nhưng ở Việt Nam đó là màu tang, phải không ?"}]}, {"emoji": "🏃", "title": "Les sports", "subtitle": "Thể thao", "tab": "Les sports", "note": "La France est une grande nation sportive : Tour de France (cyclisme), Roland Garros (tennis), équipe de foot, rugby. Au Vietnam, le <b>badminton</b> et le <b>volley-ball</b> sont très populaires. Les arts martiaux vietnamiens (<em>Võ cổ truyền</em>) ont une longue tradition.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "Le football", "s": "Bóng đá", "pr": "bóng đá", "ep": "J'aime jouer au football.", "es": "Tôi thích chơi bóng đá."}, {"p": "Le basketball", "s": "Bóng rổ", "pr": "bóng rổ", "ep": "Il joue au basketball.", "es": "Anh ấy chơi bóng rổ."}, {"p": "La natation", "s": "Bơi lội", "pr": "bơi lội", "ep": "Je fais de la natation.", "es": "Tôi bơi lội."}, {"p": "Le tennis", "s": "Quần vợt", "pr": "kwần vợt", "ep": "Je joue au tennis.", "es": "Tôi chơi quần vợt."}, {"p": "Le badminton", "s": "Cầu lông", "pr": "kầu lông", "ep": "Le badminton est populaire en Asie.", "es": "Cầu lông rất phổ biến ở châu Á."}, {"p": "Le vélo", "s": "Đua xe đạp", "pr": "đua se đạp", "ep": "Je fais du vélo le week-end.", "es": "Cuối tuần tôi đi đua xe đạp."}, {"p": "La course à pied", "s": "Chạy bộ", "pr": "tsạy bộ", "ep": "Je cours 5 km chaque matin.", "es": "Mỗi sáng tôi chạy bộ 5 km."}, {"p": "La gymnastique", "s": "Thể dục", "pr": "thể zụk", "ep": "Je fais de la gymnastique.", "es": "Tôi tập thể dục."}, {"p": "Le yoga", "s": "Yoga", "pr": "yoga", "ep": "Le yoga est relaxant.", "es": "Yoga rất thư giãn."}, {"p": "Les arts martiaux", "s": "Võ thuật", "pr": "võ thuật", "ep": "Il pratique les arts martiaux.", "es": "Anh ấy luyện tập võ thuật."}, {"p": "Le champion", "s": "Nhà vô địch", "pr": "nhà vô địch", "ep": "Il est champion du monde.", "es": "Anh ấy là nhà vô địch thế giới."}, {"p": "La victoire", "s": "Chiến thắng", "pr": "tsiến thắng", "ep": "Quelle belle victoire !", "es": "Chiến thắng đẹp quá !"}, {"p": "L'entraîneur", "s": "Huấn luyện viên", "pr": "huấn luyện viên", "ep": "Mon entraîneur est strict.", "es": "Huấn luyện viên của tôi rất nghiêm."}, {"p": "Le stade", "s": "Sân vận động", "pr": "sân vận động", "ep": "Le stade est plein.", "es": "Sân vận động đầy người."}, {"p": "L'équipe", "s": "Đội tuyển", "pr": "đội tuyển", "ep": "Mon équipe a gagné.", "es": "Đội tuyển của tôi đã thắng."}, {"p": "Le match", "s": "Trận đấu", "pr": "trận đấu", "ep": "Le match commence à 20h.", "es": "Trận đấu bắt đầu lúc 8 giờ tối."}, {"p": "S'entraîner", "s": "Luyện tập", "pr": "luyện tập", "ep": "Je m'entraîne trois fois par semaine.", "es": "Tôi luyện tập ba lần mỗi tuần."}, {"p": "Gagner", "s": "Thắng", "pr": "thắng", "ep": "J'espère gagner !", "es": "Tôi hy vọng thắng !"}, {"p": "Perdre", "s": "Thua", "pr": "thua", "ep": "On ne peut pas toujours gagner.", "es": "Không phải lúc nào cũng thắng được."}, {"p": "L'arbitre", "s": "Trọng tài", "pr": "trọng tài", "ep": "L'arbitre siffle.", "es": "Trọng tài thổi còi."}], "dlg": [{"sp": "A", "p": "Tu fais du sport ?", "s": "Bạn có chơi thể thao không ?"}, {"sp": "B", "p": "Oui ! Je cours 5 km chaque matin et je fais du badminton.", "s": "Có ! Tôi chạy bộ 5 km mỗi sáng và chơi cầu lông."}, {"sp": "A", "p": "Impressionnant ! Et le week-end ?", "s": "Ấn tượng thật ! Còn cuối tuần thì sao ?"}, {"sp": "B", "p": "Je vais au stade voir les matchs de football. Tu aimes le foot ?", "s": "Tôi đến sân vận động xem các trận đấu bóng đá. Bạn có thích bóng đá không ?"}, {"sp": "A", "p": "Oui ! Mon équipe préférée c'est l'équipe de France !", "s": "Có ! Đội tuyển yêu thích của tôi là đội tuyển Pháp !"}, {"sp": "B", "p": "Champions du monde 2018 ! Quelle victoire !", "s": "Vô địch thế giới 2018 ! Chiến thắng huy hoàng !"}]}, {"emoji": "💻", "title": "La technologie", "subtitle": "Công nghệ", "tab": "La technologie", "note": "La France est connue pour ses start-ups (<b>Station F</b> à Paris est le plus grand campus de start-ups au monde). Le Vietnam se développe rapidement dans le numérique. Des géants tech vietnamiens émergent : <b>VinGroup</b>, <b>VNG</b>, <b>FPT</b>.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "L'ordinateur", "s": "Máy tính", "pr": "máy tính", "ep": "Mon ordinateur est lent.", "es": "Máy tính của tôi chậm lắm."}, {"p": "Le téléphone", "s": "Điện thoại", "pr": "điện thoại", "ep": "Mon téléphone est cassé.", "es": "Điện thoại của tôi bị hỏng."}, {"p": "Internet", "s": "Internet", "pr": "internet", "ep": "Je surfe sur Internet.", "es": "Tôi lướt Internet."}, {"p": "L'application", "s": "Ứng dụng", "pr": "ứng zụng", "ep": "J'ai téléchargé une application.", "es": "Tôi đã tải một ứng dụng."}, {"p": "Le mot de passe", "s": "Mật khẩu", "pr": "mật khẩu", "ep": "J'ai oublié mon mot de passe.", "es": "Tôi quên mật khẩu rồi."}, {"p": "Le réseau social", "s": "Mạng xã hội", "pr": "mạng sã hội", "ep": "Je suis sur les réseaux sociaux.", "es": "Tôi dùng mạng xã hội."}, {"p": "L'email", "s": "Email", "pr": "email", "ep": "Je t'envoie un email.", "es": "Tôi gửi email cho bạn."}, {"p": "Télécharger", "s": "Tải xuống", "pr": "tải suống", "ep": "Je télécharge un fichier.", "es": "Tôi tải xuống một tệp."}, {"p": "Le Wi-Fi", "s": "Wi-Fi", "pr": "wi-fi", "ep": "Le Wi-Fi ne fonctionne pas.", "es": "Wi-Fi không hoạt động."}, {"p": "La batterie", "s": "Pin", "pr": "pin", "ep": "Ma batterie est vide.", "es": "Pin của tôi hết rồi."}, {"p": "Recharger", "s": "Sạc", "pr": "sạk", "ep": "Je dois recharger mon téléphone.", "es": "Tôi phải sạc điện thoại."}, {"p": "L'intelligence artificielle", "s": "Trí tuệ nhân tạo", "pr": "trí tuệ nhân tạo", "ep": "L'IA change le monde.", "es": "Trí tuệ nhân tạo đang thay đổi thế giới."}, {"p": "Le bug", "s": "Lỗi", "pr": "lỗi", "ep": "Il y a un bug dans le programme.", "es": "Chương trình có lỗi."}, {"p": "La mise à jour", "s": "Cập nhật", "pr": "kập nhật", "ep": "Je fais la mise à jour.", "es": "Tôi cập nhật phần mềm."}, {"p": "La vidéoconférence", "s": "Hội nghị trực tuyến", "pr": "hội nghị trựk tuyến", "ep": "On fait une vidéoconférence.", "es": "Chúng tôi họp hội nghị trực tuyến."}, {"p": "Sauvegarder", "s": "Lưu", "pr": "lưu", "ep": "N'oublie pas de sauvegarder.", "es": "Đừng quên lưu lại nhé."}, {"p": "La start-up", "s": "Khởi nghiệp", "pr": "khởi nghiệp", "ep": "Il a créé une start-up.", "es": "Anh ấy đã tạo ra một công ty khởi nghiệp."}, {"p": "Le cloud", "s": "Đám mây", "pr": "đám mây", "ep": "Je stocke mes données dans le cloud.", "es": "Tôi lưu trữ dữ liệu trên đám mây."}, {"p": "Hacker", "s": "Tin tặc", "pr": "tin tặk", "ep": "Mon compte a été hacké.", "es": "Tài khoản của tôi bị tin tặc tấn công."}, {"p": "La 5G", "s": "Mạng 5G", "pr": "mạng 5G", "ep": "La 5G arrive dans ma ville.", "es": "Mạng 5G sắp đến thành phố tôi."}], "dlg": [{"sp": "A", "p": "Mon téléphone ne fonctionne plus. Le Wi-Fi non plus.", "s": "Điện thoại của tôi không hoạt động nữa. Wi-Fi cũng vậy."}, {"sp": "B", "p": "Tu as rechargé la batterie ? Et fait la mise à jour ?", "s": "Bạn đã sạc pin chưa ? Và cập nhật phần mềm chưa ?"}, {"sp": "A", "p": "Oui ! Je crois qu'il y a un bug.", "s": "Rồi ! Tôi nghĩ có lỗi gì đó."}, {"sp": "B", "p": "Tu n'as pas oublié ton mot de passe ?", "s": "Bạn không quên mật khẩu chứ ?"}, {"sp": "A", "p": "Ah... si ! J'ai oublié. Comment je fais ?", "s": "À... đúng rồi ! Tôi quên mất. Bây giờ phải làm sao ?"}, {"sp": "B", "p": "Pas de panique ! Clique sur 'Mot de passe oublié' et sauvegarde-le dans le cloud !", "s": "Đừng hoảng ! Nhấn vào 'Quên mật khẩu' rồi lưu lên đám mây !"}]}, {"emoji": "🌍", "title": "La géographie", "subtitle": "Địa lý", "tab": "La géographie", "note": "La France métropolitaine a 6 frontières terrestres. Le Vietnam s'étend sur 1 650 km du nord au sud. La France est en <b>Europe de l'Ouest</b> ; le Vietnam en <b>Asie du Sud-Est</b>. Les deux pays ont un lien historique fort : le Vietnam fut sous domination française de 1887 à 1954.", "lp": "fr-FR", "ls": "vi-VN", "vocab": [{"p": "La France", "s": "Nước Pháp", "pr": "nướk Pháp", "ep": "La France est belle.", "es": "Nước Pháp rất đẹp."}, {"p": "Le Vietnam", "s": "Việt Nam", "pr": "việt nam", "ep": "Le Vietnam est en Asie.", "es": "Việt Nam ở châu Á."}, {"p": "Paris", "s": "Paris", "pr": "paris", "ep": "Paris est la capitale de la France.", "es": "Paris là thủ đô của Pháp."}, {"p": "Hanoï", "s": "Hà Nội", "pr": "hà nội", "ep": "Hanoï est la capitale du Vietnam.", "es": "Hà Nội là thủ đô của Việt Nam."}, {"p": "La montagne", "s": "Núi", "pr": "núi", "ep": "Les montagnes sont hautes.", "es": "Những ngọn núi rất cao."}, {"p": "La mer", "s": "Biển", "pr": "biển", "ep": "La mer est belle.", "es": "Biển rất đẹp."}, {"p": "Le fleuve", "s": "Sông", "pr": "sông", "ep": "Le fleuve est long.", "es": "Con sông rất dài."}, {"p": "L'île", "s": "Hòn đảo", "pr": "hòn đảo", "ep": "L'île est magnifique.", "es": "Hòn đảo rất tuyệt."}, {"p": "La forêt", "s": "Rừng", "pr": "rừng", "ep": "La forêt est verte.", "es": "Rừng rất xanh."}, {"p": "Le désert", "s": "Sa mạc", "pr": "sa mạk", "ep": "Le désert est chaud.", "es": "Sa mạc rất nóng."}, {"p": "Le nord", "s": "Miền Bắc", "pr": "miền bắk", "ep": "Je viens du nord.", "es": "Tôi đến từ miền Bắc."}, {"p": "Le sud", "s": "Miền Nam", "pr": "miền nam", "ep": "Je vais au sud.", "es": "Tôi đi về miền Nam."}, {"p": "L'est", "s": "Miền Đông", "pr": "miền đông", "ep": "Le soleil se lève à l'est.", "es": "Mặt trời mọc ở phía đông."}, {"p": "L'ouest", "s": "Miền Tây", "pr": "miền tây", "ep": "Le soleil se couche à l'ouest.", "es": "Mặt trời lặn ở phía tây."}, {"p": "L'Europe", "s": "Châu Âu", "pr": "tsâu Âu", "ep": "L'Europe est un beau continent.", "es": "Châu Âu là châu lục đẹp."}, {"p": "L'Asie", "s": "Châu Á", "pr": "tsâu Á", "ep": "L'Asie est diverse.", "es": "Châu Á rất đa dạng."}, {"p": "La frontière", "s": "Biên giới", "pr": "biên giới", "ep": "La frontière est fermée.", "es": "Biên giới đang đóng cửa."}, {"p": "La capitale", "s": "Thủ đô", "pr": "thủ đô", "ep": "Paris est la capitale.", "es": "Paris là thủ đô."}, {"p": "La baie d'Ha Long", "s": "Vịnh Hạ Long", "pr": "vịnh hạ long", "ep": "La baie d'Ha Long est magnifique.", "es": "Vịnh Hạ Long rất tuyệt vời."}, {"p": "La Tour Eiffel", "s": "Tháp Eiffel", "pr": "tháp eiffel", "ep": "La Tour Eiffel est le symbole de Paris.", "es": "Tháp Eiffel là biểu tượng của Paris."}], "dlg": [{"sp": "A", "p": "Tu viens d'où au Vietnam ?", "s": "Bạn đến từ đâu ở Việt Nam ?"}, {"sp": "B", "p": "Je viens du nord, de Hanoï. Et toi en France ?", "s": "Tôi đến từ miền Bắc, từ Hà Nội. Còn bạn ở Pháp ?"}, {"sp": "A", "p": "Je viens de Lyon, au sud-est de Paris.", "s": "Tôi đến từ Lyon, ở phía đông nam của Paris."}, {"sp": "B", "p": "J'adore la Tour Eiffel ! Je veux la voir en vrai.", "s": "Tôi rất thích Tháp Eiffel ! Tôi muốn được nhìn thấy tận mắt."}, {"sp": "A", "p": "Et moi j'adore la baie d'Ha Long. C'est magnifique !", "s": "Còn tôi rất thích Vịnh Hạ Long. Đẹp tuyệt vời !"}, {"sp": "B", "p": "On échange nos pays alors !", "s": "Vậy thì chúng ta đổi đất nước cho nhau nhé !"}]}];
+var ts=0, streak=0, xp=0, lvl=1, qd={}, progData={};
+C.forEach(function(c,i){ qd[i]={q:[],i:0,sc:0,ok:0,ko:0,mode:'mcq',done:false}; progData[i]=0; });
+
+// ── TTS ───────────────────────────────────────────────────────────────
+var _viVoice=null, _frVoice=null, _vLoaded=false;
+function _loadVoices(){
+  if(_vLoaded)return;
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  vs.forEach(function(v){
+    if(!_viVoice&&v.lang.toLowerCase().startsWith('vi'))_viVoice=v;
+    if(!_frVoice&&v.lang.toLowerCase().startsWith('fr'))_frVoice=v;
+  });
+  if(vs.length>0)_vLoaded=true;
+}
+if(window.speechSynthesis){
+  speechSynthesis.onvoiceschanged=function(){_vLoaded=false;_loadVoices();};
+  setTimeout(_loadVoices,300);
+}
+function _gTTS(text,lang,cb){
+  var tl=lang.startsWith('vi')?'vi':'fr';
+  var url='https://translate.google.com/translate_tts?ie=UTF-8&tl='+tl+'&client=tw-ob&q='+encodeURIComponent(text);
+  var a=new Audio(url);
+  a.onerror=function(){if(cb)cb();};
+  a.play().catch(function(){if(cb)cb();});
+}
+function _wSpeak(t,l,v){
+  if(!window.speechSynthesis)return;
+  try{
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t);
+    u.lang=l; u.rate=0.84;
+    if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function spk(t,l){
+  if(!t)return;
+  _loadVoices();
+  var isVi=l&&l.startsWith('vi');
+  if(!isVi){_wSpeak(t,l,_frVoice);return;}
+  if(_viVoice){_wSpeak(t,l,_viVoice);return;}
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  for(var i=0;i<vs.length;i++){if(vs[i].lang.toLowerCase().startsWith('vi')){_viVoice=vs[i];_wSpeak(t,l,_viVoice);return;}}
+  _gTTS(t,l,function(){_wSpeak(t,'vi-VN',null);});
+}
+
+// ── XP & GAMIFICATION ─────────────────────────────────────────────────
+var XP_TABLE=[0,50,120,200,300,420,560,720,900,1100,1320];
+function addXP(pts){
+  xp+=pts;
+  var newLvl=1;
+  for(var i=1;i<XP_TABLE.length;i++){if(xp>=XP_TABLE[i])newLvl=i+1;}
+  if(newLvl>lvl){
+    lvl=newLvl;
+    document.getElementById('lvlNum').textContent=lvl;
+    showToast('⬆️ Niveau suivant ! ' + lvl, 'xp');
+  }
+}
+function addScore(n){
+  ts+=n; document.getElementById('sv').textContent=ts;
+  streak++;
+  addXP(n*2);
+  var sb=document.getElementById('streakBox');
+  document.getElementById('streakNum').textContent=streak;
+  if(streak>=3){
+    sb.style.display='block';
+    if(streak%5===0) showToast('🔥 Série de '+streak+' correct(s) !');
+  }
+}
+function resetStreak(){
+  streak=0;
+  document.getElementById('streakBox').style.display='none';
+}
+function showToast(msg, type){
+  var el=type==='xp'?document.getElementById('xptoast'):document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show');},2200);
+}
+function updateProg(ci,pct){
+  progData[ci]=Math.max(progData[ci]||0, pct);
+  if(pct>=70){
+    var bn=document.getElementById('bnav'+ci);
+    if(bn) bn.classList.add('done');
+  }
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────
+function initNav(){
+  var nav=document.getElementById('nav');
+  C.forEach(function(c,i){
+    var b=document.createElement('button');
+    b.className='ct'; b.id='tab'+i;
+    if(i===0)b.classList.add('active');
+    b.innerHTML=c.emoji+' '+c.tab;
+    (function(x){b.onclick=function(){sw(x);};})(i);
+    nav.appendChild(b);
+  });
+}
+function sw(i){
+  document.querySelectorAll('.ct').forEach(function(t,x){t.classList.toggle('active',x===i);});
+  document.querySelectorAll('.cs').forEach(function(s,x){s.classList.toggle('active',x===i);});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── BUILD ALL ──────────────────────────────────────────────────────────
+function buildAll(){
+  var w=document.getElementById('mw');
+  C.forEach(function(c,i){
+    var sec=document.createElement('section');
+    sec.className='cs'+(i===0?' active':'');
+    sec.id='s'+i;
+    sec.appendChild(bCourse(c,i));
+    w.appendChild(sec);
+  });
+}
+function bCourse(c,i){
+  var div=document.createElement('div');
+  var h=document.createElement('div'); h.className='sh';
+  h.innerHTML='<span class="be">'+c.emoji+'</span><h2>'+c.title+'</h2><div class="st">'+c.subtitle+'</div><div class="pn">'+c.note+'</div>';
+  div.appendChild(h);
+  div.appendChild(bt('1','Vocabulaire','Từ vựng'));
+  var hint=document.createElement('p'); hint.className='vh';
+  hint.textContent='👆 Cliquez pour écouter et voir la traduction vietnamienne'; div.appendChild(hint);
+  div.appendChild(bVocab(c.vocab,c.ls));
+  div.appendChild(bt('2','Dialogue','Hội thoại'));
+  div.appendChild(bDlg(c.dlg));
+  div.appendChild(bt('3','Quiz interactif','Bài kiểm tra'));
+  div.appendChild(bQuizSection(c,i));
+  return div;
+}
+function bt(n,a,b){
+  var d=document.createElement('div'); d.className='bt';
+  d.innerHTML='<span class="bn">'+n+'</span>'+a+' — '+b; return d;
+}
+function bVocab(vocab,ls){
+  var g=document.createElement('div'); g.className='vg';
+  vocab.forEach(function(v){
+    var card=document.createElement('div'); card.className='vc';
+    card.innerHTML='<span class="tap">▶</span><div class="wp">'+v.p+'</div><div class="pr">[ '+v.pr+' ]</div><div class="ws">'+v.s+'</div><div class="ex"><em>'+v.ep+'</em><br>'+v.es+'</div>';
+    card.addEventListener('click',function(){
+      var o=card.classList.toggle('open');
+      card.querySelector('.tap').textContent=o?'◀':'▶';
+      if(o)spk(v.s,ls);
+    });
+    g.appendChild(card);
+  });
+  return g;
+}
+function bDlg(lines){
+  var w=document.createElement('div'); w.className='dw';
+  lines.forEach(function(l){
+    var r=document.createElement('div'); r.className='dl';
+    r.innerHTML='<div class="sp '+(l.sp==='B'?'b':'')+'">'+ l.sp+'</div><div class="dt"><div class="dp">'+l.p+'</div><div class="ds">'+l.s+'</div></div>';
+    w.appendChild(r);
+  });
+  return w;
+}
+
+// ── QUIZ SECTION ───────────────────────────────────────────────────────
+function bQuizSection(c,i){
+  var wrap=document.createElement('div');
+  var tabs=document.createElement('div'); tabs.className='quiz-tabs'; tabs.id='qtabs'+i;
+  var modes=[
+    {key:'mcq',lbl:'1. '+'Choix multiple'},
+    {key:'fill',lbl:'2. '+'Compléter'},
+    {key:'phrase',lbl:'3. '+'Phrase'},
+    {key:'match',lbl:'4. '+'Associer'},
+    {key:'rev',lbl:'5. Reverse'},
+    {key:'fill2',lbl:'6. '+'Compléter'+' ×2'},
+    {key:'battle',lbl:'⚡ Mode Chrono'},
+  ];
+  modes.forEach(function(m,mi){
+    var tb=document.createElement('button'); tb.className='qtab'; tb.id='qtab'+i+'_'+mi;
+    tb.textContent=m.lbl;
+    if(mi===0)tb.classList.add('active');
+    (function(mode,idx,tabIdx){
+      tb.onclick=function(){
+        if(mode==='battle'){startBattle(i);return;}
+        document.querySelectorAll('#qtabs'+i+' .qtab').forEach(function(t){t.classList.remove('active');});
+        tb.classList.add('active');
+        qd[i]={q:makeQ(C[i],mode),i:0,sc:0,ok:0,ko:0,mode:mode,done:false};
+        renderQ(i);
+      };
+    })(m.key,i,mi);
+    tabs.appendChild(tb);
+  });
+  wrap.appendChild(tabs);
+  var qbox=document.createElement('div'); qbox.className='qw'; qbox.id='qw'+i;
+  var top=document.createElement('div'); top.className='qt';
+  top.innerHTML='<div class="qtl"><h3>Quiz — '+c.title+'</h3><span class="db" id="dir'+i+'">FR → VI</span></div><div class="qs"><span>✓ <strong id="ok'+i+'">0</strong></span><span>✗ <strong id="ko'+i+'">0</strong></span><span id="tot'+i+'">0/'+makeQ(c,'mcq').length+'</span></div>';
+  qbox.appendChild(top);
+  var body=document.createElement('div'); body.className='qi'; body.id='qb'+i;
+  qbox.appendChild(body);
+  wrap.appendChild(qbox);
+  return wrap;
+}
+
+// ── QUESTION GENERATORS ─────────────────────────────────────────────────
+function shuf(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function rnd(arr,n){return shuf(arr.slice()).slice(0,n);}
+
+function makeQ(c,mode){
+  var v=c.vocab, n=v.length, qs=[];
+  if(mode==='mcq'){
+    // 8 MCQ p→s
+    rnd(v,8).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      qs.push({t:'mcq',dir:'FR → VI',q:cor.p,ans:cor.s,opts:opts.map(function(o){return o.s;}),spk:cor.s,sl:c.ls,ql:c.lp});
+    });
+    // 6 MCQ s→p
+    rnd(v,6).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      qs.push({t:'mcq',dir:'VI → FR',q:cor.s,ans:cor.p,opts:opts.map(function(o){return o.p;}),spk:cor.p,sl:c.lp,ql:c.ls});
+    });
+    // 4 MCQ phrase→word
+    rnd(v,4).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      var blanked=cor.ep.replace(new RegExp(cor.p.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'),'_____');
+      var qtext=blanked+' [→ '+cor.p+']';
+      qs.push({t:'mcq',dir:'PHRASE',q:qtext,ans:cor.s,opts:opts.map(function(o){return o.s;}),spk:cor.s,sl:c.ls});
+    });
+  } else if(mode==='fill'){
+    // 7 fill p→s
+    rnd(v,7).forEach(function(x){qs.push({t:'fill',dir:'FR → VI',q:x.p,ans:x.s,spk:x.s,sl:c.ls,ql:c.lp});});
+    // 5 fill s→p
+    rnd(v,5).forEach(function(x){qs.push({t:'fill',dir:'VI → FR',q:x.s,ans:x.p,spk:x.p,sl:c.lp,ql:c.ls});});
+  } else if(mode==='fill2'){
+    // 10 fill s→p (harder direction)
+    rnd(v,10).forEach(function(x){qs.push({t:'fill',dir:'VI → FR',q:x.s,ans:x.p,spk:x.p,sl:c.lp,ql:c.ls});});
+    rnd(v,5).forEach(function(x){qs.push({t:'fill',dir:'FR → VI',q:x.p,ans:x.s,spk:x.s,sl:c.ls,ql:c.lp});});
+  } else if(mode==='phrase'){
+    // phrase→word MCQ (10 phrases)
+    rnd(v,10).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      var blanked=cor.ep.replace(new RegExp(cor.p.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'),'_____');
+      var qtext=blanked+' [→ '+cor.p+']';
+      qs.push({t:'mcq',dir:'PHRASE',q:qtext,ans:cor.s,opts:opts.map(function(o){return o.s;}),spk:cor.s,sl:c.ls});
+    });
+    // exemple s→p
+    rnd(v,8).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      var blanked2=cor.es.replace(new RegExp(cor.s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'),'_____');
+      var qtext2=blanked2+' [→ '+cor.s+']';
+      qs.push({t:'mcq',dir:'PHRASE',q:qtext2,ans:cor.p,opts:opts.map(function(o){return o.p;}),spk:cor.p,sl:c.lp});
+    });
+  } else if(mode==='match'){
+    // 4 blocks of 5 match pairs
+    var groups=[];
+    var vshuf=shuf(v.slice());
+    for(var g=0;g<4;g++){
+      groups.push({t:'match',pairs:vshuf.slice(g*5,g*5+5),lp:c.lp,ls:c.ls});
+    }
+    return groups;
+  } else if(mode==='rev'){
+    // reverse: s→p MCQ with 8 items
+    rnd(v,8).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      qs.push({t:'mcq',dir:'VI → FR',q:cor.s,ans:cor.p,opts:opts.map(function(o){return o.p;}),spk:cor.p,sl:c.lp,ql:c.ls});
+    });
+    rnd(v,7).forEach(function(x){qs.push({t:'fill',dir:'VI → FR',q:x.s,ans:x.p,spk:x.p,sl:c.lp,ql:c.ls});});
+    rnd(v,5).forEach(function(cor){
+      var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+      var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+      qs.push({t:'mcq',dir:'PHRASE',q:cor.es,ans:cor.p,opts:opts.map(function(o){return o.p;}),spk:cor.p,sl:c.lp});
+    });
+  }
+  return qs;
+}
+
+// ── RENDER QUESTION ─────────────────────────────────────────────────────
+function renderQ(ci){
+  var d=qd[ci], body=document.getElementById('qb'+ci);
+  if(!body)return;
+  if(!d.q||d.q.length===0){d.q=makeQ(C[ci],'mcq');}
+  if(d.mode==='match'){renderMatch(ci,0);return;}
+  if(d.i>=d.q.length){renderRes(ci);return;}
+  var q=d.q[d.i], tot=d.q.length, pct=Math.round((d.i/tot)*100);
+  document.getElementById('dir'+ci).textContent=q.dir;
+  body.innerHTML='';
+  var prog=document.createElement('div'); prog.className='qp';
+  var bar=document.createElement('div'); bar.className='qpb'; bar.style.width=pct+'%';
+  prog.appendChild(bar); body.appendChild(prog);
+  var meta=document.createElement('p'); meta.className='qm';
+  meta.textContent='Question '+(d.i+1)+' / '+tot; body.appendChild(meta);
+  var tl=document.createElement('p'); tl.className='qtl2';
+  tl.textContent=(q.t==='mcq'&&q.dir==='PHRASE'?'Phrase':q.t==='mcq'?'Choix multiple'+" · "+q.dir:'Compléter'+" · "+q.dir);
+  body.appendChild(tl);
+  var qrow=document.createElement('div'); qrow.className='qq';
+  var qp=document.createElement('p'); qp.textContent=q.q; qp.classList.add('pop');
+  var qb=document.createElement('button'); qb.innerHTML='🔊';
+  var qlang=q.ql||C[ci].lp;
+  (function(t,l){qb.onclick=function(){spk(t,l);};})(q.q,qlang);
+  qrow.appendChild(qp); qrow.appendChild(qb); body.appendChild(qrow);
+  var fb=document.createElement('div'); fb.className='fb'; fb.id='fb'+ci; body.appendChild(fb);
+  if(q.t==='mcq'){
+    var grid=document.createElement('div'); grid.className='opts';
+    q.opts.forEach(function(opt){
+      var btn=document.createElement('button'); btn.className='opt'; btn.textContent=opt;
+      (function(o,a,sk,sl){btn.onclick=function(){chkMCQ(ci,btn,o,a,sk,sl);};})(opt,q.ans,q.spk,q.sl);
+      grid.appendChild(btn);
+    });
+    body.appendChild(grid);
+  } else {
+    var fr=document.createElement('div'); fr.className='fr';
+    var inp=document.createElement('input');
+    inp.type='text'; inp.className='fi'; inp.id='fi'+ci;
+    inp.placeholder=''; inp.autocomplete='off'; inp.spellcheck=false;
+    fr.appendChild(inp); body.appendChild(fr);
+    var nav=document.createElement('div'); nav.className='qn';
+    var cb=document.createElement('button'); cb.className='btn n'; cb.textContent='Vérifier ✓';
+    (function(a,sk,sl){
+      cb.onclick=function(){chkFill(ci,a,sk,sl);};
+      inp.addEventListener('keydown',function(e){if(e.key==='Enter')chkFill(ci,a,sk,sl);});
+    })(q.ans,q.spk,q.sl);
+    nav.appendChild(cb); body.appendChild(nav);
+    setTimeout(function(){inp.focus();},100);
+  }
+  var nav2=document.createElement('div'); nav2.className='qn'; nav2.style.marginTop='9px';
+  var nb=document.createElement('button'); nb.className='btn o'; nb.textContent='Suivante →';
+  nb.id='nx'+ci; nb.style.display='none';
+  (function(x){nb.onclick=function(){qd[x].i++;renderQ(x);};})(ci);
+  nav2.appendChild(nb); body.appendChild(nav2);
+}
+
+// ── MATCH EXERCISE ────────────────────────────────────────────────────
+var matchState={};
+function renderMatch(ci,groupIdx){
+  var body=document.getElementById('qb'+ci);
+  if(!body)return;
+  var groups=qd[ci].q;
+  if(groupIdx>=groups.length){renderMatchRes(ci);return;}
+  var g=groups[groupIdx];
+  matchState[ci]={groupIdx:groupIdx,pairs:g.pairs,selLeft:null,selRight:null,matched:0,lp:g.lp,ls:g.ls};
+  body.innerHTML='';
+  var lbl=document.createElement('p'); lbl.className='qtl2';
+  lbl.textContent='Associer'+" — "+'FR → VI'+" ("+( groupIdx+1)+"/"+groups.length+")";
+  body.appendChild(lbl);
+  var fb=document.createElement('div'); fb.className='fb'; fb.id='fb'+ci; body.appendChild(fb);
+  var wrap=document.createElement('div'); wrap.className='match-wrap';
+  var lCol=document.createElement('div'); lCol.className='mcol';
+  var rCol=document.createElement('div'); rCol.className='mcol';
+  var leftItems=shuf(g.pairs.map(function(p){return p.p;}));
+  var rightItems=shuf(g.pairs.map(function(p){return p.s;}));
+  leftItems.forEach(function(txt,idx){
+    var it=document.createElement('div'); it.className='mitem'; it.textContent=txt;
+    it.dataset.val=txt; it.dataset.side='L';
+    it.onclick=function(){doMatchClick(ci,it,'L');};
+    lCol.appendChild(it);
+  });
+  rightItems.forEach(function(txt,idx){
+    var it=document.createElement('div'); it.className='mitem'; it.textContent=txt;
+    it.dataset.val=txt; it.dataset.side='R';
+    it.onclick=function(){doMatchClick(ci,it,'R');};
+    rCol.appendChild(it);
+  });
+  wrap.appendChild(lCol); wrap.appendChild(rCol);
+  body.appendChild(wrap);
+  var nav2=document.createElement('div'); nav2.className='qn'; nav2.style.marginTop='9px';
+  var nb=document.createElement('button'); nb.className='btn o'; nb.textContent='Suivante →';
+  nb.id='nx'+ci; nb.style.display='none';
+  (function(x,gi){nb.onclick=function(){renderMatch(x,gi+1);};})(ci,groupIdx);
+  nav2.appendChild(nb); body.appendChild(nav2);
+}
+
+function doMatchClick(ci,el,side){
+  var ms=matchState[ci];
+  if(el.classList.contains('ok'))return;
+  if(side==='L'){
+    document.querySelectorAll('#qb'+ci+' .mitem[data-side="L"]').forEach(function(i){if(!i.classList.contains('ok'))i.classList.remove('sel');});
+    el.classList.toggle('sel');
+    ms.selLeft=el.classList.contains('sel')?el:null;
+  } else {
+    document.querySelectorAll('#qb'+ci+' .mitem[data-side="R"]').forEach(function(i){if(!i.classList.contains('ok'))i.classList.remove('sel');});
+    el.classList.toggle('sel');
+    ms.selRight=el.classList.contains('sel')?el:null;
+  }
+  if(ms.selLeft&&ms.selRight){
+    var lv=ms.selLeft.dataset.val, rv=ms.selRight.dataset.val;
+    var correct=ms.pairs.some(function(p){return p.p===lv&&p.s===rv;});
+    if(correct){
+      ms.selLeft.classList.remove('sel'); ms.selLeft.classList.add('ok');
+      ms.selRight.classList.remove('sel'); ms.selRight.classList.add('ok');
+      ms.matched++;
+      qd[ci].ok = (qd[ci].ok||0) + 1;
+      ms.selLeft=null; ms.selRight=null;
+      addScore(2); spk(rv,ms.ls);
+      if(ms.matched===ms.pairs.length){
+        showToast('Correct !');
+        document.getElementById('nx'+ci).style.display='inline-block';
+      }
+    } else {
+      ms.selLeft.classList.add('ko'); ms.selRight.classList.add('ko');
+      qd[ci].ko = (qd[ci].ko||0) + 1;
+      resetStreak();
+      setTimeout(function(){
+        ms.selLeft.classList.remove('sel','ko');
+        ms.selRight.classList.remove('sel','ko');
+        ms.selLeft=null; ms.selRight=null;
+      },500);
+    }
+  }
+}
+
+// ── CHECK MCQ ────────────────────────────────────────────────────────
+function chkMCQ(ci,btn,chosen,ans,sk,sl){
+  var btns=btn.parentElement.querySelectorAll('.opt');
+  btns.forEach(function(b){b.disabled=true;});
+  var fb=document.getElementById('fb'+ci), nx=document.getElementById('nx'+ci);
+  var ok=(chosen===ans);
+  if(ok){btn.classList.add('ok');addScore(1);qd[ci].ok++;}
+  else{btn.classList.add('ko');btns.forEach(function(b){if(b.textContent===ans)b.classList.add('ok');});qd[ci].ko++;resetStreak();}
+  fb.className='fb '+(ok?'ok':'ko');
+  fb.className='fb '+(ok?'ok':'ko');
+  fb.innerHTML=mkFb(ok,ans,sk,sl);
+  spk(sk,sl); updStats(ci);
+  if(nx)nx.style.display='inline-block';
+}
+
+// ── CHECK FILL ───────────────────────────────────────────────────────
+function chkFill(ci,ans,sk,sl){
+  var inp=document.getElementById('fi'+ci);
+  if(!inp||inp.disabled)return;
+  var val=inp.value.trim(), fb=document.getElementById('fb'+ci), nx=document.getElementById('nx'+ci);
+  inp.disabled=true;
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+  var ok=(norm(val)===norm(ans));
+  if(ok){inp.classList.add('ok');addScore(2);qd[ci].ok++;}
+  else{inp.classList.add('ko');qd[ci].ko++;resetStreak();}
+  fb.className='fb '+(ok?'ok':'ko');
+  fb.className='fb '+(ok?'ok':'ko');
+  fb.innerHTML=mkFb(ok,ans,sk,sl);
+  spk(sk,sl); updStats(ci);
+  if(nx)nx.style.display='inline-block';
+}
+
+function updStats(ci){
+  var d=qd[ci];
+  var eo=document.getElementById('ok'+ci),ek=document.getElementById('ko'+ci),et=document.getElementById('tot'+ci);
+  if(eo)eo.textContent=d.ok;
+  if(ek)ek.textContent=d.ko;
+  if(et)et.textContent=(d.i+1)+'/'+d.q.length;
+}
+
+// ── RESULT ───────────────────────────────────────────────────────────
+
+function renderMatchRes(ci){
+  var body=document.getElementById('qb'+ci);
+  if(!body) return;
+  var d=qd[ci];
+  var ok=d.ok||0, ko=d.ko||0, tot=ok+ko;
+  var pct=tot>0?Math.round((ok/tot)*100):0;
+  var em=pct>=90?'🏆':pct>=75?'🎉':pct>=55?'👍':pct>=35?'📚':'💪';
+  var msg=pct>=90?'Parfait ! Xuất sắc !':pct>=75?'Très bien ! Làm tốt !':pct>=55?'Pas mal ! Encore un effort !':'Continue à pratiquer !';
+  document.getElementById('dir'+ci).textContent='✓';
+  updateProg(ci,pct);
+  var tab=document.getElementById('tab'+ci);
+  if(tab&&pct>=70) tab.classList.add('done');
+  body.innerHTML=
+    '<div class="res">'+
+    '<div class="re pop">'+em+'</div>'+
+    '<div class="rs">'+ok+' / '+tot+'</div>'+
+    '<div class="rbd">'+
+    '<div class="rbi"><strong>'+ok+'</strong><span>Corrects</span></div>'+
+    '<div class="rbi"><strong>'+ko+'</strong><span>Incorrects</span></div>'+
+    '<div class="rbi"><strong>'+pct+'%</strong><span>Score</span></div>'+
+    '</div>'+
+    '<div class="rm">'+msg+'</div>'+
+    '<button class="btn r" id="rmr'+ci+'">🔄 Recommencer</button>'+
+    '</div>';
+  document.getElementById('rmr'+ci).onclick=function(){
+    qd[ci]={q:makeQ(C[ci],'match'),i:0,sc:0,ok:0,ko:0,mode:'match',done:false};
+    renderMatch(ci,0);
+  };
+}
+
+function renderRes(ci){
+  var body=document.getElementById('qb'+ci), d=qd[ci], tot=d.q.length;
+  var pct=Math.round((d.sc||d.ok)/tot*100);
+  var em=pct>=90?'🏆':pct>=75?'🎉':pct>=55?'👍':pct>=35?'📚':'💪';
+  var msg=pct>=90?'Parfait ! Xuất sắc !':pct>=75?'Très bien ! Làm tốt !':pct>=55?'Pas mal ! Encore un effort !':'Continue à pratiquer !';
+  document.getElementById('dir'+ci).textContent='✓';
+  updateProg(ci,pct);
+  var tab=document.getElementById('tab'+ci);
+  if(tab&&pct>=70)tab.classList.add('done');
+  body.innerHTML='<div class="res"><div class="re pop">'+em+'</div><div class="rs">'+d.ok+' / '+tot+'</div><div class="rbd"><div class="rbi"><strong>'+d.ok+'</strong><span>Corrects</span></div><div class="rbi"><strong>'+d.ko+'</strong><span>Incorrects</span></div><div class="rbi"><strong>'+pct+'%</strong><span>Score</span></div></div><div class="rm">'+msg+'</div><button class="btn r" id="rs'+ci+'">🔄 Recommencer</button></div>';
+  (function(x){
+    document.getElementById('rs'+x).onclick=function(){
+      var mode=qd[x].mode||'mcq';
+      qd[x]={q:makeQ(C[x],mode),i:0,sc:0,ok:0,ko:0,mode:mode,done:false};
+      document.getElementById('dir'+x).textContent=C[x].lp;
+      renderQ(x);
+    };
+  })(ci);
+}
+
+// ── BATTLE MODE ───────────────────────────────────────────────────────
+var battleTimer=null, battleLeft=0, battleCi=-1, battleScore=0;
+function startBattle(ci){
+  // Stop any existing timer
+  if(battleTimer){ clearInterval(battleTimer); battleTimer=null; }
+
+  var body=document.getElementById('qb'+ci);
+  if(!body) return;
+
+  // Build only pure MCQ questions (no match groups, no ambiguous phrases)
+  var v=C[ci].vocab, qs=[];
+  var vshuf=shuf(v.slice());
+  vshuf.forEach(function(cor){
+    var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+    var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+    // FR→VI
+    qs.push({q:cor.p, ans:cor.s, opts:opts.map(function(o){return o.s;}), spk:cor.s, sl:C[ci].ls});
+  });
+  var vshuf2=shuf(v.slice());
+  vshuf2.forEach(function(cor){
+    var pool=v.filter(function(x){return x!==cor;}); shuf(pool);
+    var opts=[cor].concat(pool.slice(0,3)); shuf(opts);
+    // VI→FR
+    qs.push({q:cor.s, ans:cor.p, opts:opts.map(function(o){return o.p;}), spk:cor.p, sl:C[ci].lp});
+  });
+  shuf(qs);
+  if(!qs.length) return;
+
+  battleCi=ci; battleLeft=60; battleScore=0;
+  var qIdx=0;
+  var battleId='battle'+ci; // unique ID per course
+
+  body.innerHTML=
+    '<div class="battle-wrap">'+
+    '<div class="battle-head">'+
+    '<h4>⚡ Mode Chrono — '+C[ci].title+'</h4>'+
+    '<div class="timer" id="btimer'+ci+'">60</div>'+
+    '</div>'+
+    '<div class="battle-body" id="bbody'+ci+'"></div>'+
+    '</div>';
+
+  function nextBQ(){
+    if(qIdx>=qs.length) qIdx=0;
+    var q=qs[qIdx++];
+    var bb=document.getElementById('bbody'+ci);
+    if(!bb) return;
+    bb.innerHTML='';
+    var ql=document.createElement('p');
+    ql.style.cssText='font-family:Playfair Display,serif;font-size:1.2rem;color:var(--n);text-align:center;margin-bottom:14px;';
+    ql.textContent=q.q;
+    bb.appendChild(ql);
+    var grid=document.createElement('div'); grid.className='opts';
+    q.opts.forEach(function(opt){
+      var btn=document.createElement('button'); btn.className='opt'; btn.textContent=opt;
+      (function(o,a,sk,sl){
+        btn.onclick=function(){
+          if(battleLeft<=0) return;
+          grid.querySelectorAll('.opt').forEach(function(b){b.disabled=true;});
+          var ok=(o===a);
+          if(ok){ battleScore++; addScore(1); spk(sk,sl); btn.classList.add('ok'); }
+          else  { btn.classList.add('ko'); resetStreak(); }
+          var sc=document.getElementById('bscore'+ci);
+          if(sc) sc.textContent='Score : '+battleScore;
+          setTimeout(nextBQ, 380);
+        };
+      })(opt, q.ans, q.spk, q.sl);
+      grid.appendChild(btn);
+    });
+    bb.appendChild(grid);
+    var sc=document.createElement('p');
+    sc.id='bscore'+ci;
+    sc.style.cssText='text-align:center;font-size:0.8rem;color:#aaa;margin-top:10px;font-weight:600;';
+    sc.textContent='Score : '+battleScore;
+    bb.appendChild(sc);
+  }
+
+  nextBQ();
+
+  battleTimer=setInterval(function(){
+    battleLeft--;
+    var timer=document.getElementById('btimer'+ci);
+    if(!timer){ clearInterval(battleTimer); battleTimer=null; return; }
+    timer.textContent=battleLeft;
+    timer.className='timer'+(battleLeft<=10?' crit':battleLeft<=20?' warn':'');
+    if(battleLeft<=0){
+      clearInterval(battleTimer); battleTimer=null;
+      var bb=document.getElementById('bbody'+ci);
+      if(bb){
+        bb.innerHTML=
+          '<div style="text-align:center;padding:24px">'+
+          '<p style="font-size:2rem;margin-bottom:8px">⏱️</p>'+
+          '<p style="font-size:1.3rem;font-weight:700;color:var(--r);font-family:Playfair Display,serif">Temps écoulé !</p>'+
+          '<p style="font-size:1rem;color:#555;margin-top:10px">Score final : <strong style=\'color:var(--n);font-size:1.4rem\'>'+battleScore+'</strong> pts</p>'+
+          '<button class="btn g" style="margin-top:16px" onclick="startBattle('+ci+')">🔄 Rejouer</button>'+
+          '</div>';
+      }
+    }
+  },1000);
+}
+
+function mkFb(ok, ans, sk, sl) {
+  var icon = ok ? '\u2713' : '\u2717';
+  var msg = ok ? 'Correct !' : 'Incorrect. Reponse :' + ' <b>' + ans + '</b>';
+  var safesk = sk.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  return icon + ' ' + msg + '&nbsp;&nbsp;<button class="spkb" onclick="spk(\'' + safesk + '\',\'' + sl + '\')">[son] Ecouter</button>';
+}
+
+
+// ── BOTTOM NAV for mobile ──────────────────────────────────────
+function buildBottomNav(){
+  var existing = document.getElementById('bottomNav');
+  if(existing) existing.remove();
+  var bn = document.createElement('div');
+  bn.id = 'bottomNav';
+  bn.style.display = 'none'; // shown via CSS on mobile
+  C.forEach(function(c,i){
+    var item = document.createElement('button');
+    item.className = 'bnav-item' + (i===0?' active':'');
+    item.id = 'bnav'+i;
+    item.innerHTML = '<span class="bnav-emoji">'+c.emoji+'</span><span>'+c.tab.split(' ').slice(0,2).join(' ')+'</span>';
+    (function(x){ item.onclick = function(){ sw(x); }; })(i);
+    bn.appendChild(item);
+  });
+  document.body.appendChild(bn);
+}
+
+var _origSw = sw;
+sw = function(i){
+  _origSw(i);
+  // sync bottom nav
+  document.querySelectorAll('.bnav-item').forEach(function(b,x){
+    b.classList.toggle('active', x===i);
+  });
+};
+
+initNav(); buildAll(); buildBottomNav();
+C.forEach(function(c,i){ qd[i].q=makeQ(c,'mcq'); renderQ(i); });
+</script>
+</body>
+</html>
